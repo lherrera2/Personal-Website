@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Plate Shelf Counter System</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{box-sizing:border-box;}
+
+html{scroll-behavior:smooth;}
+
+body{
+margin:0;
+font-family:Inter;
+background:#0a0a0a;
+color:white;
+padding-top:80px;
+-webkit-font-smoothing: antialiased;
+}
+
+h1,h2,h3{
+font-weight:700;
+letter-spacing:-1px;
+}
+
+/* NAV */
+nav{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    padding:18px 40px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:rgba(10,10,10,0.8);
+    z-index:1000;
+    transition: transform 0.35s ease, background 0.3s ease;
+}
+
+nav.hidden{
+transform: translateY(-100%);
+}
+
+.logo{
+font-size:1.3rem;
+font-weight:600;
+color:white;
+text-decoration:none;
+}
+
+.nav-links{
+display:flex;
+align-items:center;
+gap:20px;
+}
+
+.nav-links a{
+color:#aaa;
+text-decoration:none;
+font-size:.9rem;
+}
+
+.nav-links a:hover{color:white;}
+
+.resume-btn{
+border:1px solid #aaa;
+padding:8px 16px;
+border-radius:20px;
+}
+
+.resume-btn:hover{
+border-color:white;
+color:white;
+}
+
+/* SECTION */
+.section{
+position:relative;
+height:100vh;
+overflow:hidden;
+
+opacity:0;
+transform:translateY(40px);
+transition: all 0.8s ease;
+}
+
+.section.visible{
+opacity:1;
+transform:translateY(0);
+}
+
+.section img{
+width:100%;
+height:100%;
+object-fit:cover;
+}
+
+.section::after{
+content:"";
+position:absolute;
+top:0;left:0;width:100%;height:100%;
+background:linear-gradient(to bottom, rgba(0,0,0,.2), rgba(0,0,0,.9));
+}
+
+.content{
+position:absolute;
+top:50%;
+left:8%;
+transform:translateY(-50%);
+max-width:520px;
+z-index:2;
+}
+
+.content h1{
+font-size:2.8rem;
+margin-bottom:15px;
+}
+
+.content p{
+color:#ccc;
+line-height:1.6;
+}
+
+/* BULLET LIST */
+.content ul{
+margin-top:10px;
+color:#ccc;
+line-height:1.6;
+padding-left:18px;
+}
+
+.content li{
+margin-bottom:6px;
+}
+
+/* LIGHT SECTION */
+.section-light{
+padding:100px 8%;
+background:#0a0a0a;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:30px;
+margin-top:40px;
+}
+
+.grid img{
+width:100%;
+border-radius:12px;
+}
+
+footer{
+text-align:center;
+padding:40px;
+color:#666;
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+<a href="index.html" class="logo">Leonardo Herrera</a>
+
+<div class="nav-links">
+<a href="index.html#work">Selected Work</a>
+<a href="nasa.html">NASA</a>
+<a href="countercraft.html">CounterCraft</a>
+<a href="index.html#contact">Contact</a>
+<a href="WebsiteImages/Leonardo_Herrera_Resume.pdf" class="resume-btn" target="_blank">Resume</a>
+</div>
+</nav>
+
+<!-- HERO -->
+<div class="section">
+<img src="WebsiteImages/CounterCraft/Diamond Club/2-Item 2/DiamondClub_Item 2_Final.png">
+
+<div class="content">
+<h1>PLATE SHELF COUNTER SYSTEM</h1>
+<p>
+Designed a production-ready serving counter with integrated plate storage, translating architectural layouts into a manufacturable system for commercial installation.
+</p>
+</div>
+</div>
+
+<div class = "section-light">
+<p><strong>Impact</strong></p>
+<p>
+• Delivered production-ready counter system for real-world installation<br>
+• Improved service efficiency through integrated plate storage<br>
+• Translated architectural layouts into manufacturable assemblies
+</p>
+
+<p><strong>Constraints</strong></p>
+<p>
+• Fixed architectural layout and spatial constraints<br>
+• Required compatibility with foodservice equipment<br>
+• Needed to be manufacturable using standard sheet metal processes
+</p>
+
+<p><strong>Approach</strong></p>
+<p>
+1. Interpreted architectural layouts and requirements<br>
+2. Developed structural frame using weldments<br>
+3. Integrated storage and service components into assembly<br>
+4. Prepared manufacturing-ready drawings and models
+</p>
+</div>
+
+<!-- CONTEXT -->
+<div class="section">
+<img src="WebsiteImages/CounterCraft/Diamond Club/3-Item 3/DiamondClub_Item3_Final.png">
+
+<div class="content">
+<h1>PROJECT CONTEXT</h1>
+<p>
+Developed for a high-end hospitality environment requiring precise fit, durability, and clean integration.
+<br><br>
+The system needed to operate efficiently within a constrained footprint while supporting service workflow and integrated storage.
+</p>
+</div>
+</div>
+
+<!-- DESIGN INPUT -->
+<div class="section">
+<img src="WebsiteImages/CounterCraft/Diamond Club/2-Item 2/Layout Frame.png">
+
+<div class="content">
+<h1>DESIGN INPUT</h1>
+<p>
+Began with AutoCAD layouts defining spatial constraints, equipment placement, and workflow requirements.
+<br><br>
+These inputs established the foundation for a fully detailed and manufacturable 3D system.
+</p>
+</div>
+</div>
+
+<!-- ENGINEERING -->
+<div class="section">
+<img src="WebsiteImages/CounterCraft/Diamond Club/2-Item 2/DiamondClub_Item 2_Frame.png">
+
+<div class="content">
+<h1>ENGINEERING DESIGN</h1>
+<p>
+Developed the structural frame in SolidWorks using weldments to balance strength, manufacturability, and assembly efficiency.
+</p>
+
+<ul>
+<li>Structural support for equipment and shelving</li>
+<li>Integrated plate storage within the frame</li>
+<li>Sheet metal–friendly geometry for fabrication</li>
+</ul>
+
+</div>
+</div>
+
+<!-- ASSEMBLY -->
+<div class="section">
+<img src="WebsiteImages/CounterCraft/Diamond Club/2-Item 2/DiamondClub_Item 2_Model.png">
+
+<div class="content">
+<h1>FINAL ASSEMBLY</h1>
+<p>
+Integrated structure, storage, and service surfaces into a cohesive assembly ready for fabrication and installation.
+</p>
+</div>
+</div>
+
+<!-- RESULT -->
+<div class="section">
+<img src="WebsiteImages/CounterCraft/Diamond Club/2-Item 2/DiamondClub_Item 2_Model2 .png">
+
+<div class="content">
+<h1>RESULT</h1>
+<p>
+Delivered a production-ready system that translated directly from CAD to fabrication and installation.
+<br><br>
+Enabled reliable operation in a high-traffic commercial environment while maintaining design intent.
+</p>
+</div>
+</div>
+
+<footer>
+© 2026 Leonardo Herrera
+</footer>
+
+<script>
+/* NAV HIDE ON SCROLL */
+let lastScroll = 0;
+const nav = document.querySelector("nav");
+
+window.addEventListener("scroll", () => {
+let currentScroll = window.pageYOffset;
+
+if(currentScroll > lastScroll && currentScroll > 80){
+    nav.classList.add("hidden");
+} else {
+    nav.classList.remove("hidden");
+}
+
+lastScroll = currentScroll;
+});
+
+/* FADE-IN SECTIONS */
+const sections = document.querySelectorAll(".section");
+
+const observer = new IntersectionObserver(entries => {
+entries.forEach(entry => {
+    if(entry.isIntersecting){
+        entry.target.classList.add("visible");
+    }
+});
+},{ threshold: 0.2 });
+
+sections.forEach(section => observer.observe(section));
+</script>
+
+</body>
+</html>

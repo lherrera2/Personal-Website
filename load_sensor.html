@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Load Sensor Calibration Tool</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{box-sizing:border-box;}
+
+html{scroll-behavior:smooth;}
+
+body{
+margin:0;
+font-family:Inter;
+background:#0a0a0a;
+color:white;
+padding-top:80px;
+-webkit-font-smoothing: antialiased;
+}
+
+h1,h2,h3{
+font-weight:700;
+letter-spacing:-1px;
+}
+
+/* NAV */
+nav{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    padding:18px 40px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:rgba(10,10,10,0.8);
+    z-index:1000;
+    transition: transform 0.35s ease, background 0.3s ease;
+}
+
+nav.hidden{
+transform: translateY(-100%);
+}
+
+.logo{
+color:white;
+text-decoration:none;
+font-weight:600;
+font-size:1.3rem;
+}
+
+.nav-links{
+display:flex;
+align-items:center;
+gap:20px;
+}
+
+.nav-links a{
+color:#aaa;
+text-decoration:none;
+font-size:.9rem;
+}
+
+.nav-links a:hover{color:white;}
+
+.resume-btn{
+border:1px solid #aaa;
+padding:8px 16px;
+border-radius:20px;
+}
+
+.resume-btn:hover{
+border-color:white;
+color:white;
+}
+
+/* SECTION */
+.section{
+position:relative;
+height:100vh;
+overflow:hidden;
+
+opacity:0;
+transform:translateY(40px);
+transition: all 0.8s ease;
+}
+
+.section.visible{
+opacity:1;
+transform:translateY(0);
+}
+
+/* LIGHT SECTION */
+.section-light{
+    background:#0a0a0a;
+    padding:100px 8%;
+}
+
+/* DEFAULT */
+.section img{
+width:100%;
+height:100%;
+object-fit:cover;
+}
+
+/* ENGINEERING VIEW */
+.section.contain img{
+object-fit:contain;
+background:#000;
+}
+
+/* OVERLAY */
+.section::after{
+content:"";
+position:absolute;
+inset:0;
+background:linear-gradient(to bottom, rgba(0,0,0,.2), rgba(0,0,0,.9));
+}
+
+/* TEXT */
+.content{
+position:absolute;
+top:50%;
+left:8%;
+transform:translateY(-50%);
+max-width:520px;
+z-index:2;
+}
+
+.content h1{
+font-size:2.8rem;
+margin-bottom:15px;
+}
+
+.content p{
+color:#ccc;
+line-height:1.6;
+}
+
+footer{
+text-align:center;
+padding:40px;
+color:#666;
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAV -->
+<nav>
+<a href="index.html" class="logo">Leonardo Herrera</a>
+
+<div class="nav-links">
+<a href="index.html#work">Selected Work</a>
+<a href="nasa.html">NASA</a>
+<a href="countercraft.html">CounterCraft</a>
+<a href="index.html#contact">Contact</a>
+<a href="WebsiteImages/Leonardo_Herrera_Resume.pdf" class="resume-btn" target="_blank">Resume</a>
+</div>
+</nav>
+
+<!-- HERO -->
+<div class="section">
+<img src="WebsiteImages/Photos NASA Internship/ATIboxbefore.jpg">
+<div class="content">
+<h1>LOAD SENSOR CALIBRATION TOOL</h1>
+<p>
+Designed a multi-axis calibration tool for force–moment sensors used in spacecraft docking simulations, improving measurement accuracy and test reliability.
+</p>
+</div>
+</div>
+
+
+<div class="section-light">
+<p><strong>Impact</strong></p>
+<p>
+• Improved calibration accuracy of multi-axis force–moment sensors<br>
+• Increased confidence in test data used for docking validation<br>
+• Enabled repeatable and controlled load application across multiple axes
+</p>
+
+<p><strong>Constraints</strong></p>
+<p>
+• Needed compatibility with existing ATI Omega160 sensor interfaces<br>
+• Required precise load application without damaging sensors<br>
+• Operated within an active NASA test environment
+</p>
+
+<p><strong>Approach</strong></p>
+<p>
+1. Analyzed limitations of existing calibration methods<br>
+2. Defined required force/moment application ranges<br>
+3. Designed multi-axis loading mechanism<br>
+4. Validated through controlled calibration testing
+</p>
+</div>
+
+
+<!-- SYSTEM OVERVIEW -->
+<div class="section">
+<img src="WebsiteImages/Photos NASA Internship/e6DOFElectronics1.jpg">
+<div class="content">
+<h1>SYSTEM OVERVIEW</h1>
+<p>
+Within the Six Degree of Freedom Dynamic Test System (SDTS), ATI Omega160 force–moment sensors are integrated into both robotic and fixed load ring assemblies.
+<br><br>
+These sensors measure forces and moments applied during docking simulations, making accurate calibration critical to system performance.
+</p>
+</div>
+</div>
+
+<!-- PROBLEM -->
+<div class="section contain">
+<img src="WebsiteImages/Photos NASA Internship/ATITools.jpg">
+<div class="content">
+<h1>DESIGN PROBLEM</h1>
+<p>
+Existing calibration methods limited the ability to apply controlled and repeatable multi-axis loads.
+<br><br>
+This reduced confidence in measurement accuracy during complex docking interactions.
+</p>
+</div>
+</div>
+
+<!-- SOLUTION -->
+<div class="section contain">
+<img src="WebsiteImages/Photos NASA Internship/ATILoadSensor.jpg">
+<div class="content">
+<h1>ENGINEERING SOLUTION</h1>
+<p>
+Developed a dedicated calibration tool capable of applying controlled forces and moments across multiple axes.
+<br><br>
+Improved precision and simplified setup, enabling consistent and repeatable calibration procedures.
+</p>
+</div>
+</div>
+
+<!-- APPLICATION -->
+<div class="section contain">
+<img src="WebsiteImages/Photos NASA Internship/ATILoadSensor2.jpg">
+<div class="content">
+<h1>APPLICATION</h1>
+<p>
+Used to validate ATI Omega160 sensors prior to testing, ensuring accurate force and moment data during docking simulations.
+<br><br>
+Directly supports reliable system behavior and data integrity.
+</p>
+</div>
+</div>
+
+<!-- RESULT -->
+<div class="section contain">
+<img src="WebsiteImages/Photos NASA Internship/20230202_112909.jpg">
+<div class="content">
+<h1>RESULT</h1>
+<p>
+Improved calibration capability and measurement reliability across the SDTS system.
+<br><br>
+Reduced uncertainty in force and moment data during spacecraft docking tests.
+</p>
+</div>
+</div>
+
+<footer>
+© 2026 Leonardo Herrera
+</footer>
+
+<script>
+/* NAV HIDE ON SCROLL */
+let lastScroll = 0;
+const nav = document.querySelector("nav");
+
+window.addEventListener("scroll", () => {
+let currentScroll = window.pageYOffset;
+
+if(currentScroll > lastScroll && currentScroll > 80){
+    nav.classList.add("hidden");
+} else {
+    nav.classList.remove("hidden");
+}
+
+lastScroll = currentScroll;
+});
+
+/* FADE-IN SECTIONS */
+const sections = document.querySelectorAll(".section");
+
+const observer = new IntersectionObserver(entries => {
+entries.forEach(entry => {
+    if(entry.isIntersecting){
+        entry.target.classList.add("visible");
+    }
+});
+},{ threshold: 0.2 });
+
+sections.forEach(section => observer.observe(section));
+</script>
+
+</body>
+</html>

@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Leonardo Herrera | Mechanical Engineer</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+    box-sizing: border-box;
+}
+
+html{scroll-behavior:smooth;}
+body{margin:0;font-family:Inter;background:#0a0a0a;color:white;-webkit-font-smoothing: antialiased;}
+
+.full-section{
+width:100%;
+max-width:none;
+padding:0;
+}
+
+h1,h2,h3{font-weight:700; letter-spacing:-1px;}
+
+h2{font-size:2.8rem;text-align:center;margin-bottom:50px;letter-spacing:-0.5px;}
+
+/* NAV */
+nav{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    padding:18px 40px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:rgba(10,10,10,0.8);
+    z-index:1000;
+    transition: transform 0.35s ease, background 0.3s ease;
+}
+
+nav.hidden{
+transform: translateY(-100%);
+}
+
+/* LOGO */
+.logo{
+    font-size:1.3rem;
+    font-weight:600;
+    color:white;
+    text-decoration:none;
+    white-space:nowrap;
+}
+
+/* LINKS */
+.nav-links{
+    display:flex;
+    align-items:center;
+    gap:20px;
+    flex-shrink:0;
+}
+
+/* NORMAL LINKS */
+.nav-links a{
+    color:#aaa;
+    text-decoration:none;
+    font-size:.9rem;
+    white-space:nowrap;
+}
+
+.nav-links a:hover{
+    color:white;
+}
+
+/* RESUME BUTTON */
+.resume-btn{
+    border:1px solid #aaa;
+    padding:8px 16px;
+    border-radius:20px;
+}
+
+.resume-btn:hover{
+    border-color:white;
+    color:white;
+}
+
+/* HERO */
+.hero{position:relative;height:100vh;display:flex;align-items:center;overflow:hidden;}
+.hero img{position:absolute;width:100%;height:100%;object-fit:cover;}
+
+.hero::after{
+content:"";
+position:absolute;
+width:100%;
+height:100%;
+background:linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.85));
+}
+
+.hero-content{position:relative;z-index:2;max-width:600px;margin-left:8%;}
+
+.hero h1{font-size:64px;font-weight:700;letter-spacing:-1px;margin-bottom:20px;}
+.hero p{color:#aaa;font-size:1.2rem;line-height:1.6;margin-bottom:30px;}
+
+.button{padding:14px 30px;border-radius:999px;font-size:.85rem;letter-spacing:.5px;text-decoration:none;transition:.25s;display:inline-block;margin-right:10px;}
+.primary{background:white;color:black;}
+.primary:hover{transform:scale(1.05);} 
+.secondary{border:1px solid #aaa;color:#ddd;}
+.secondary:hover{border-color:white;color:white;}
+
+/* IMAGE SECTIONS */
+.image-section{
+position:relative;
+height:100vh; /* full screen height */
+width:100%;
+margin:0;
+overflow:hidden;
+}
+.image-section img{width:100%;height:100%;object-fit:cover;}
+
+.image-section::after{
+content:"";
+position:absolute;
+top:0;left:0;width:100%;height:100%;
+background:linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.9));
+}
+
+.image-section + .image-section{
+margin-top:2px; /* subtle separation like SpaceX */
+
+}
+
+.image-text{
+position:absolute;
+z-index:2;
+top:50%;
+left:8%;
+transform:translateY(-50%);
+max-width:500px;
+}
+
+/* RIGHT ALIGNED VERSION */
+.image-text.right{
+left:auto;
+right:8%;
+text-align:Left;
+}
+
+.image-text h1,.image-text h2{font-size:2.5rem;text-align:left;}
+.image-text p{color:#ccc;line-height:1.6;}
+
+.learn{margin-top:20px;background:white;color:black;border:none;padding:10px 20px;border-radius:20px;text-decoration:none;display:inline-block;}
+
+/* PROJECT GRID */
+
+.expand{
+max-height:0;
+overflow:hidden;
+transition:max-height .6s ease;
+}
+
+.expand.active{
+max-height:2000px;
+margin-top:40px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:30px;
+margin-top:40px;
+}
+
+/* CLICKABLE CARDS */
+
+.card-link{
+display:block;
+text-decoration:none;
+color:inherit;
+}
+
+.card-link:visited,
+.card-link:hover,
+.card-link:active{
+color:inherit;
+text-decoration:none;
+}
+
+.card{
+border:1px solid #222;
+border-radius:18px;
+overflow:hidden;
+transition:.35s;
+cursor:pointer;
+}
+
+.card:hover{
+transform:translateY(-8px);
+border-color:#444;
+}
+
+.card:active{
+transform:scale(.98);
+}
+
+.card img{
+width:100%;
+height:220px;
+object-fit:cover;
+}
+
+.card-content{
+padding:20px;
+}
+
+.card h3{
+margin:0 0 10px;
+font-size:1.2rem;
+}
+
+.card p{
+color:#aaa;
+font-size:.95rem;
+line-height:1.5;
+}
+
+.card-link *{
+color:inherit;
+text-decoration:none;
+}
+
+.tag{
+display:inline-block;
+background:#1e1e1e;
+padding:5px 10px;
+border-radius:20px;
+font-size:.7rem;
+margin:6px 6px 0 0;
+}
+
+/* BUTTON */
+
+.learn{
+margin-top:20px;
+background:white;
+color:black;
+border:none;
+padding:10px 24px;
+border-radius:20px;
+cursor:pointer;
+transition:.25s;
+}
+
+.learn:hover{
+transform:scale(1.05);
+}
+
+/* ABOUT */
+.about{display:flex;gap:60px;align-items:center;max-width:900px;margin:auto;}
+.about img{width:170px;border-radius:12px;}
+
+
+
+/* CONTACT */
+.contact{text-align:center;}
+.contact a{margin:0 12px;color:#aaa;}
+
+footer{text-align:center;padding:40px;color:#666;}
+
+@media(max-width:800px){
+.hero h1{font-size:2.5rem;}
+.about{flex-direction:column;text-align:center;}
+.image-text{left:5%;right:5%;}
+}
+
+#stars{
+position:absolute;
+width:100%;
+height:100%;
+z-index:2;
+pointer-events:none;
+opacity:.9;
+}
+
+.hero img{
+position:absolute;
+width:100%;
+height:100%;
+object-fit:cover;
+z-index:1;
+filter:brightness(40%);
+transition:transform 6s ease;
+}
+
+.hero::after{
+content:"";
+position:absolute;
+width:100%;
+height:100%;
+background:linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.8));
+}
+
+</style>
+</head>
+
+<body>
+
+<nav>
+
+<a href="#" class="logo">Leonardo Herrera</a>
+
+<div class="nav-links">
+    <a href="#projects">Work</a>
+    <a href="nasa.html">NASA</a>
+    <a href="countercraft.html">CounterCraft</a>
+    <a href="#contact">Contact</a>
+    <a href="WebsiteImages/Leonardo_Herrera_Resume.pdf" class="resume-btn">Resume</a>
+</div>
+
+</nav>
+<!-- HERO -->
+<div class="hero">
+<canvas id="stars"></canvas>
+
+<div class="hero-content">
+
+<h1>
+ENGINEERING SYSTEMS THAT PERFORM IN THE REAL WORLD
+</h1>
+<p>
+Supported spacecraft docking validation at NASA Johnson Space Center.
+<br><br>
+I design and build hardware that moves from concept to operation—focused on precision, reliability, and real-world performance.
+</p>
+
+<a class="button primary" href="#projects">View Work</a>
+<a class="button secondary" href="WebsiteImages/Leonardo_Herrera_Resume.pdf">Resume</a>
+
+</div>
+</div>
+
+<!-- PROJECTS -->
+<section id="projects" class="full-section">
+
+<!-- NASA -->
+<div class="image-section">
+<img src="WebsiteImages/SDTS.jpg">
+<div class="image-text">
+
+<h1>ADVANCING SPACECRAFT DOCKING SYSTEMS</h1>
+<p>
+Contributed to the Six Degree of Freedom Dynamic Test System (SDTS), supporting robotic docking characterization for spacecraft interfaces used in human spaceflight programs. Designed mechanical hardware, supported testing operations, and improved measurement precision for mission-critical validation.
+</p>
+<a class="learn" href="nasa.html">Explore</a>
+</div>
+</div>
+
+<!-- COUNTERCRAFT -->
+<div class="image-section">
+<img src="WebsiteImages/CounterCraft/Diamond Club/1-Item 1/DiamondClub_Item 1_Final.png">
+<div class="image-text right">
+<h2>REVOLUTIONIZING CUSTOM SERVING SOLUTIONS</h2>
+<p>
+Designed high-end, fully customizable serving counters for the foodservice industry using SolidWorks. Developed integrated systems including merchandisers, heated wells, and beverage stations, tailored to specific installations such as Daikin Park.
+</p>
+<a class="learn" href="countercraft.html">Learn More</a>
+</div>
+</div>
+
+</section>
+
+<!-- SELECTED WORK -->
+<section id="work">
+
+<h2>Selected Work</h2>
+
+<div class="grid">
+
+
+<!-- 1. OPTOTRAK MOUNT -->
+<a href="optotrak.html" class="card-link">
+    <div class="card">
+
+    <img src="WebsiteImages/Photos NASA Internship/Optotrak.jpg">
+
+    <div class="card-content">
+
+    <h3>Optotrak Mount Redesign</h3>
+
+    <p>
+    Redesigned a critical camera mounting system for spacecraft docking tests, improving reliability by eliminating shear-based attachment failure.
+    </p>
+
+    <span class="tag">Mechanical Design</span>
+    <span class="tag">NASA</span>
+
+    </div>
+
+    </div>
+</a>
+
+<!-- 2. LOAD SENSOR TOOL -->
+<!-- LOAD SENSOR TOOL -->
+
+<a href="load_sensor.html" class="card-link">
+    <div class="card">
+
+    <img src="WebsiteImages/Photos NASA Internship/ATILoadSensor2.jpg">
+
+    <div class="card-content">
+
+    <h3>Load Sensor Calibration Tool</h3>
+
+    <p>
+    Designed a multi-axis calibration tool to apply controlled moments to force sensors, improving testing capability and measurement reliability.
+    </p>
+
+    <span class="tag">Mechanical Design</span>
+    <span class="tag">Testing</span>
+    <span class="tag">Hardware</span>
+
+    </div>
+
+    </div>
+</a>
+
+<!-- 3. COUNTERCRAFT -->
+
+<a href="counter_plate.html" class="card-link">
+    <div class="card">
+
+    <img src="WebsiteImages/CounterCraft/Diamond Club/2-Item 2/DiamondClub_Item 2_Final.png">
+
+    <div class="card-content">
+    <h3>Integrated Plate Shelf Counter System</h3>
+
+    <p>
+    Designed a production-ready serving counter with integrated plate storage, translating architectural layouts into manufacturable sheet metal assemblies.
+    </p>
+
+    <span class="tag">SolidWorks</span>
+    <span class="tag">Sheet Metal</span>
+    <span class="tag">Manufacturing</span>
+
+    </div>
+    </div>
+</a>
+
+</div>
+
+<!-- VIEW ALL BUTTON -->
+
+<div style="text-align:center; margin-top:50px;">
+<button id="workToggle" class="learn" onclick="toggleWork()">
+Show More
+</button>
+</div>
+
+<!-- EXPANDED SECTION -->
+
+<div id="moreWork" class="expand">
+
+<div class="grid">
+
+<!-- THESIS -->
+
+    <div class="card">
+    <img src="WebsiteImages/ThesisCover.PNG" alt="Paper 1">
+    <div class="card-content">
+    <h3>CONTROL FILTER ASSESSMENT ON SIX DEGREE OF FREEDOM STEWART PLATFORM - Thesis</h3>
+    <p>
+    Developed and validated transfer functions for a 6DOF docking system using MATLAB and Simulink. (Thesis – Under Review)
+    </p>
+    <span class="tag">Research</span>
+    <span class="tag">Controls</span>
+    </div>
+    </div>
+
+<!-- DEPLOYABLE SHIELD -->
+<a href="shield.html" class="card-link">
+<div class="card">
+
+<img src="WebsiteImages/Ball Aerospace/Ball.jpg">
+
+<div class="card-content">
+<h3>Deployable Shield Mechanism</h3>
+
+<p>
+Designed a lightweight deployable mechanism for spacecraft payload protection, adaptable to multiple geometries and validated through prototyping.
+</p>
+
+<span class="tag">Mechanisms</span>
+<span class="tag">CAD</span>
+<span class="tag">Prototyping</span>
+
+</div>
+</div>
+</a>
+
+<!-- RESEARCH PAPER -->
+
+<a href="WebsiteImages/Modeling of a Stewart Platform for Analyzing One Directional Dynamics for Spacecraft Docking Operations.pdf" class="card-link">
+
+<div class="card">
+
+<img src="WebsiteImages/Paper1.PNG" alt="Paper 1">
+
+<div class="card-content">
+<h3>Modeling of a Stewart Platform for Analyzing One Directional Dynamics for Spacecraft Docking Operations</h3>
+
+<p>
+A one-directional dynamic model of a Stewart Platform was developed to assist NASA in analyzing spacecraft docking dynamics.
+</p>
+
+<span class="tag">Research</span>
+<span class="tag">Controls</span>
+</div>
+
+</div>
+
+</a>
+
+
+</div>
+
+</div>
+
+
+<!-- ABOUT -->
+<section id="about"> 
+<h2>About</h2>
+
+<div class="about">
+
+<div>
+
+Mechanical engineer focused on designing and validating hardware for real-world systems.
+
+Experience includes spacecraft docking test systems at NASA Johnson Space Center and production-ready mechanical design in manufacturing environments.
+
+I specialize in translating engineering concepts into reliable, testable hardware.
+
+</div>
+<img src="WebsiteImages/Leonardo-Herrera-WEB-4675.jpg" alt="Your Professional Headshot">
+</div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact">
+<h2>Contact</h2>
+<a href="http://www.linkedin.com/in/lh-mech-eng">LinkedIn</a>
+<a href="#">Email</a>
+</section>
+
+<footer>
+© 2026 Leonardo Herrera
+</footer>
+
+<script>
+let lastScroll = 0;
+const nav = document.querySelector("nav");
+
+window.addEventListener("scroll", () => {
+let currentScroll = window.pageYOffset;
+
+if(currentScroll > lastScroll && currentScroll > 80){
+    // scrolling down
+    nav.classList.add("hidden");
+} else {
+    // scrolling up
+    nav.classList.remove("hidden");
+}
+
+lastScroll = currentScroll;
+});
+</script>
+<script>
+function toggleWork(){
+const section = document.getElementById("moreWork");
+const button = document.getElementById("workToggle");
+
+section.classList.toggle("active");
+
+if(section.classList.contains("active")){
+button.innerText = "Show Less";
+
+setTimeout(() => {
+section.scrollIntoView({ behavior: "smooth", block: "start" });
+}, 300);
+
+} else {
+button.innerText = "Show More";
+}
+}
+</script>
+
+<script>
+const canvas = document.getElementById("stars");
+const ctx = canvas.getContext("2d");
+
+function resizeCanvas(){
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+}
+resizeCanvas();
+window.addEventListener("resize", resizeCanvas);
+
+let stars = [];
+for(let i=0;i<140;i++){
+stars.push({
+x:Math.random()*canvas.width,
+y:Math.random()*canvas.height,
+size:Math.random()*1.8 + 0.3,
+speed:Math.random()*0.4 + 0.1
+});
+}
+
+function shootingStar(){
+let x = Math.random()*canvas.width;
+let y = Math.random()*canvas.height*0.5;
+let length = 220;
+let gradient = ctx.createLinearGradient(x,y,x+length,y+length);
+gradient.addColorStop(0,"rgba(255,255,255,1)");
+gradient.addColorStop(0.3,"rgba(255,255,255,0.8)");
+gradient.addColorStop(1,"rgba(255,255,255,0)");
+ctx.strokeStyle = gradient;
+ctx.lineWidth = 2.5;
+ctx.beginPath();
+ctx.moveTo(x,y);
+ctx.lineTo(x+length,y+length);
+ctx.stroke();
+}
+
+setInterval(shootingStar,3500);
+
+function animate(){
+ctx.clearRect(0,0,canvas.width,canvas.height);
+ctx.shadowBlur = 6;
+ctx.shadowColor = "white";
+
+stars.forEach(star=>{
+star.y += star.speed;
+if(star.y > canvas.height){
+star.y = 0;
+star.x = Math.random()*canvas.width;
+}
+ctx.fillStyle="rgba(255,255,255,0.9)";
+ctx.fillRect(star.x,star.y,star.size,star.size);
+});
+
+requestAnimationFrame(animate);
+}
+
+animate();
+</script>
+
+</body>
+</html>

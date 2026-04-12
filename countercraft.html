@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>CounterCraft Experience</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+
+body{
+margin:0;
+font-family:Inter;
+background:#0a0a0a;
+color:white;
+padding-top:80px;
+-webkit-font-smoothing: antialiased;
+}
+
+h1,h2,h3{
+font-weight:700;
+letter-spacing:-1px;
+}
+
+/* NAV */
+nav{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    padding:18px 40px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:rgba(10,10,10,0.8);
+    z-index:1000;
+    transition: transform 0.35s ease, background 0.3s ease;
+}
+
+nav.hidden{
+transform: translateY(-100%);
+}
+
+.logo{
+font-size:1.3rem;
+font-weight:600;
+color:white;
+text-decoration:none;
+white-space:nowrap;
+}
+
+.nav-links{
+display:flex;
+align-items:center;
+gap:20px;
+flex-shrink:0;
+}
+
+.nav-links a{
+color:#aaa;
+text-decoration:none;
+font-size:.9rem;
+white-space:nowrap;
+}
+
+.nav-links a:hover{
+color:white;
+}
+
+.resume-btn{
+border:1px solid #aaa;
+padding:8px 16px;
+border-radius:20px;
+}
+
+.resume-btn:hover{
+border-color:white;
+color:white;
+}
+
+/* SECTION */
+.section{
+position:relative;
+height:100vh;
+width:100%;
+overflow:hidden;
+}
+
+.section img{
+width:100%;
+height:100%;
+object-fit:cover;
+}
+
+/* USE THIS when you DON'T want zoom */
+.contain img{
+object-fit:contain;
+background:#000;
+padding:20px; /* subtle breathing room */
+}
+
+/* overlay */
+.section::after{
+content:"";
+position:absolute;
+top:0;left:0;
+width:100%;height:100%;
+background:linear-gradient(to bottom, rgba(0,0,0,.2), rgba(0,0,0,.9));
+}
+
+.content{
+position:absolute;
+z-index:2;
+top:50%;
+left:8%;
+transform:translateY(-50%);
+max-width:600px;
+}
+
+.content h1{
+font-size:2.8rem;
+margin-bottom:15px;
+}
+
+.content p{
+color:#ccc;
+line-height:1.6;
+font-size:1.05rem;
+}
+
+/* subtle section separator like SpaceX */
+.section + .section{
+margin-top:2px;
+}
+
+footer{
+text-align:center;
+padding:40px;
+color:#666;
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+<a href="index.html" class="logo">Leonardo Herrera</a>
+
+<div class="nav-links">
+<a href="index.html#work">Selected Work</a>
+<a href="nasa.html">NASA</a>
+<a href="index.html#contact">Contact</a>
+<a href="WebsiteImages/Leonardo_Herrera_Resume.pdf" class="resume-btn" target="_blank">Resume</a>
+</div>
+</nav>
+
+<!-- HERO -->
+<div class="section">
+<img src="WebsiteImages/CounterCraft/Diamond Club/2-Item 2/DiamondClub_Item 2_Final.png">
+
+<div class="content">
+<h1>COUNTERCRAFT EXPERIENCE</h1>
+<p>
+Develop production-ready commercial counter systems across multiple projects, translating design concepts into manufacturable, fabrication-ready solutions.
+</p>
+</div>
+</div>
+
+<!-- REAL WORLD CONTEXT -->
+<div class="section">
+<img src="WebsiteImages/CounterCraft/Diamond Club/3-Item 3/DiamondClub_Item3_Final.png">
+
+<div class="content">
+<h1>REAL-WORLD APPLICATION</h1>
+<p>
+Example installation at Daikin Park Diamond Club.  
+<br><br>
+This represents the type of work delivered across multiple commercial environments—not a single isolated project.
+</p>
+</div>
+</div>
+
+<!-- DESIGN -->
+<div class="section contain">
+<img src="WebsiteImages/CounterCraft/Diamond Club/3-Item 3/DiamondClub_Item3_Layout.png">
+
+<div class="content">
+<h1>LAYOUT & DESIGN</h1>
+<p>
+Created detailed layout drawings in AutoCAD to define geometry, spacing, and integration within architectural constraints.
+<br><br>
+Ensured accuracy and coordination with surrounding systems prior to fabrication.
+</p>
+</div>
+</div>
+
+<!-- FRAME -->
+<div class="section contain">
+<img src="WebsiteImages/CounterCraft/Diamond Club/3-Item 3/DiamondClub_Item3_Frame.png">
+
+<div class="content">
+<h1>STRUCTURAL FRAME DEVELOPMENT</h1>
+<p>
+Designed structural frames using SolidWorks weldments, focusing on strength, stability, and efficient assembly.
+<br><br>
+Translated design intent into manufacturable structures ready for production.
+</p>
+</div>
+</div>
+
+<!-- FINAL CAD -->
+<div class="section contain">
+<img src="WebsiteImages/CounterCraft/Diamond Club/3-Item 3/DiamondClub_Item3_Model.png">
+
+<div class="content">
+<h1>FINAL CAD ASSEMBLY</h1>
+<p>
+Integrated all components into a complete assembly model, ensuring fit, function, and manufacturability.
+<br><br>
+Validated designs before release to production.
+</p>
+</div>
+</div>
+
+<!-- MANUFACTURING -->
+<div class="section contain">
+<img src="WebsiteImages/CounterCraft/Diamond Club/3-Item 3/DiamondClub_Item3_Nesting.png">
+
+<div class="content">
+<h1>PRODUCTION PREPARATION</h1>
+<p>
+Prepared manufacturing-ready files including nesting layouts, flat patterns, bend values, and part labeling.
+<br><br>
+Optimized material usage and enabled efficient fabrication workflows.
+</p>
+</div>
+</div>
+
+<!-- RESULT -->
+<div class="section">
+<img src="WebsiteImages/CounterCraft/Diamond Club/3-Item 3/DiamondClub_Item3_Final2.png">
+
+<div class="content">
+<h1>RESULT</h1>
+<p>
+Delivered production-ready designs that streamlined fabrication and supported successful installation across multiple commercial projects.
+</p>
+</div>
+</div>
+
+<footer>
+© 2026 Leonardo Herrera
+</footer>
+
+<script>
+let lastScroll = 0;
+const nav = document.querySelector("nav");
+
+window.addEventListener("scroll", () => {
+let currentScroll = window.pageYOffset;
+
+if(currentScroll > lastScroll && currentScroll > 80){
+    nav.classList.add("hidden");
+} else {
+    nav.classList.remove("hidden");
+}
+
+lastScroll = currentScroll;
+});
+</script>
+
+</body>
+</html>

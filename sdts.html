@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>SDTS System Architecture</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+
+body{
+margin:0;
+font-family:Inter;
+background:#0a0a0a;
+color:white;
+padding-top:80px;
+-webkit-font-smoothing: antialiased;
+}
+
+h1,h2,h3{
+font-weight:700;
+letter-spacing:-1px;
+}
+
+/* NAV */
+nav{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    padding:18px 40px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:rgba(10,10,10,0.8);
+    z-index:1000;
+    transition: transform 0.35s ease, background 0.3s ease;
+}
+
+
+nav.hidden{
+transform: translateY(-100%);
+}
+
+.logo{
+font-size:1.3rem;
+font-weight:600;
+color:white;
+text-decoration:none;
+white-space:nowrap;
+}
+
+.nav-links{
+display:flex;
+align-items:center;
+gap:20px;
+}
+
+.nav-links a{
+color:#aaa;
+text-decoration:none;
+font-size:.9rem;
+white-space:nowrap;
+}
+
+.nav-links a:hover{color:white;}
+
+.resume-btn{
+border:1px solid #aaa;
+padding:8px 16px;
+border-radius:20px;
+}
+
+.resume-btn:hover{
+border-color:white;
+color:white;
+}
+
+/* SECTION */
+.section{
+position:relative;
+height:100vh;
+width:100%;
+overflow:hidden;
+}
+
+.section img{
+width:100%;
+height:100%;
+object-fit:cover;
+}
+
+.section video{
+width:100%;
+height:100%;
+object-fit:contain;
+}
+
+.section::after{
+content:"";
+position:absolute;
+inset:0;
+background:linear-gradient(to bottom, rgba(0,0,0,.2), rgba(0,0,0,.9));
+}
+
+/* TEXT */
+.content{
+position:absolute;
+z-index:2;
+top:50%;
+left:8%;
+transform:translateY(-50%);
+max-width:600px;
+}
+
+.content h1{
+font-size:2.8rem;
+margin-bottom:15px;
+}
+
+.content p{
+color:#ccc;
+line-height:1.6;
+}
+
+/* LIGHT SECTION */
+.section-light{
+background:#0a0a0a;
+padding:100px 8%;
+}
+
+.section-light h1{
+font-size:2.5rem;
+margin-bottom:20px;
+}
+
+.section-light p{
+color:#aaa;
+max-width:800px;
+line-height:1.6;
+}
+
+/* LIST STYLE */
+.list{
+margin-top:20px;
+}
+
+.list p{
+margin:8px 0;
+color:#ccc;
+}
+
+/* GRID */
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:30px;
+margin-top:40px;
+}
+
+.card{
+background:#111;
+padding:20px;
+border-radius:12px;
+}
+
+.card h3{
+margin-bottom:10px;
+}
+
+.card p{
+color:#aaa;
+font-size:.95rem;
+}
+
+.card img{
+width:100%;
+height:180px;
+object-fit:cover;
+border-radius:8px;
+margin-bottom:10px;
+}
+
+/* FOOTER */
+footer{
+text-align:center;
+padding:40px;
+color:#666;
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAV -->
+<nav>
+<a href="index.html" class="logo">Leonardo Herrera</a>
+
+<div class="nav-links">
+<a href="index.html#work">Selected Work</a>
+<a href="nasa.html">NASA</a>
+<a href="countercraft.html">CounterCraft</a>
+<a href="index.html#contact">Contact</a>
+<a href="WebsiteImages/Leonardo_Herrera_Resume.pdf" class="resume-btn" target="_blank">Resume</a>
+</div>
+</nav>
+
+<!-- HERO -->
+<div class="section">
+<img src="WebsiteImages/Photos NASA Internship/SDTS.jpg">
+
+<div class="content">
+<h1>SIX DEGREE OF FREEDOM DYNAMIC TEST SYSTEM</h1>
+<p>
+A real-time hardware-in-the-loop simulation environment used to validate spacecraft docking systems through controlled motion, sensing, and closed-loop dynamics.
+</p>
+</div>
+</div>
+
+<!-- OVERVIEW -->
+<div class="section">
+<video autoplay muted loop playsinline>
+<source src="WebsiteImages/Photos NASA Internship/20230309_112819.mp4" type="video/mp4">
+</video>
+
+<div class="content">
+<h1>SYSTEM OVERVIEW</h1>
+<p>
+The SDTS simulates spacecraft docking in a controlled ground environment.
+<br><br>
+A robotic motion platform drives a full-scale docking interface toward a fixed test article, while real-time simulation software computes system response.
+<br><br>
+This enables validation of docking systems before flight, reducing mission risk and ensuring performance under realistic conditions.
+</p>
+</div>
+</div>
+
+<!-- MOTION -->
+<div class="section">
+<img src="WebsiteImages/Photos NASA Internship/IDA.jpg">
+
+<div class="content">
+<h1>MOTION SYSTEM</h1>
+<p>
+The system is driven by an electric six-degree-of-freedom (e6DOF) Stewart platform developed by Mikrolar.
+<br><br>
+This robot replaces a legacy hydraulic system and provides precise motion in translation and rotation.
+<br><br>
+Docking hardware, such as the International Docking Adapter (IDA), is mounted to the robot and driven according to simulation commands.
+<br><br>
+The system supports payloads up to ~5000 kg with precise translational and rotational motion.
+</p>
+</div>
+</div>
+
+<!-- MEASUREMENT -->
+<div class="section-light">
+
+<h1>MEASUREMENT SYSTEMS</h1>
+
+<div class="grid">
+
+<div class="card">
+<img src="WebsiteImages/Photos NASA Internship/LeicaAfter.jpg">
+<h3>Laser Tracking (Leica)</h3>
+<p>
+Tracks position and orientation in six degrees of freedom at high frequency.
+Provides absolute position reference for the robot during testing and system setup.
+</p>
+</div>
+
+<div class="card">
+<img src="WebsiteImages/Photos NASA Internship/Optotrak.jpg">
+<h3>Infrared Tracking (Optotrak)</h3>
+<p>
+Captures motion of infrared markers placed on docking hardware.
+Enables precise relative motion tracking between interfaces.
+</p>
+</div>
+
+<div class="card">
+<img src="WebsiteImages/Photos NASA Internship/ATI Load Sensor.jpg">
+<h3>Force–Moment Sensors (ATI)</h3>
+<p>
+Measures forces and moments during contact between docking systems.
+Sensors are mounted on both motion and fixed load ring assemblies.
+</p>
+</div>
+
+</div>
+
+</div>
+
+<!-- CONTROLS -->
+<div class="section">
+<img src="WebsiteImages/Thesis/LQG Controller Block.PNG">
+
+<div class="content">
+<h1>CONTROLS & SIMULATION</h1>
+<p>
+The SDTS operates as a closed-loop system using real-time simulation and control computers.
+<br><br>
+The Simhost computer calculates system dynamics and generates motion commands.
+The Digital Control System (DCS) executes actuator commands at high frequency.
+<br><br>
+During contact, measured forces from the load sensors are fed back into the simulation.
+<br><br>
+This creates a closed-loop system:
+motion → measurement → simulation → updated motion commands.
+<br><br>
+The result is a dynamic response that replicates real spacecraft docking behavior.
+</p>
+</div>
+</div>
+
+<!-- TEST FLOW -->
+<div class="section-light">
+
+<h1>DOCKING TEST FLOW</h1>
+
+<div class="list">
+<p>1. Docking hardware is mounted to the robot and fixed structure</p>
+<p>2. Measurement systems are calibrated (Leica, Optotrak, ATI)</p>
+<p>3. Simulation is initialized through Simhost</p>
+<p>4. Robot executes motion toward docking interface</p>
+<p>5. Contact forces are measured during interaction</p>
+<p>6. Feedback is processed in real time to adjust motion</p>
+<p>7. Data is recorded for validation and certification</p>
+</div>
+
+</div>
+
+<!-- SUPPORT -->
+<div class="section">
+<img src="WebsiteImages/Photos NASA Internship/SpaceX.jpg">
+
+<div class="content">
+<h1>SUPPORT SYSTEMS</h1>
+<p>
+A large steel superstructure positions and supports the fixed docking interface with adjustable height and alignment.
+<br><br>
+Video systems provide real-time monitoring and high-definition recording of test operations.
+<br><br>
+Synchronized data acquisition ensures precise timing across all measurement and control systems.
+</p>
+</div>
+</div>
+
+<!-- CONTRIBUTION -->
+<div class="section-light">
+
+<h1>ENGINEERING CONTRIBUTION</h1>
+
+<div class="list">
+<p>• Improved measurement reliability through Optotrak mounting redesign and Leica inverted design</p>
+<p>• Developed multi-axis calibration tooling for force–moment sensors</p>
+<p>• Supported real-time docking test execution and validation</p>
+<p>• Designed mechanical hardware for system integration within SDTS</p>
+</div>
+
+</div>
+
+<!-- WHY IT MATTERS -->
+<div class="section">
+<img src="WebsiteImages/Photos NASA Internship/Dragon Docking.webp">
+
+<div class="content">
+<h1>WHY IT MATTERS</h1>
+<p>
+<br><br>
+The SDTS enables full-scale validation of spacecraft docking systems before flight.
+<br><br>
+By replicating real-world dynamics and contact behavior, it reduces mission risk and ensures reliable performance across multiple space programs.
+</p>
+</div>
+
+<!-- IMAGE CREDIT HERE -->
+<p style="position:absolute; bottom:20px; right:30px; font-size:0.7rem; color:rgba(255,255,255,0.6); z-index:3;">
+Image Credit: <a href="https://www.nasa.gov/image-article/two-spacex-dragon-vehicles-are-pictured-docked-to-the-space-station-2/" target="_blank" style="color:rgba(255,255,255,0.6); text-decoration:none;">NASA</a>
+</p>
+</div>
+
+
+<footer>
+© 2026 Leonardo Herrera
+</footer>
+
+<!-- NAV SCROLL -->
+<script>
+let lastScroll = 0;
+const nav = document.querySelector("nav");
+
+window.addEventListener("scroll", () => {
+let currentScroll = window.pageYOffset;
+
+if(currentScroll > lastScroll && currentScroll > 80){
+    nav.classList.add("hidden");
+} else {
+    nav.classList.remove("hidden");
+}
+
+lastScroll = currentScroll;
+});
+</script>
+
+</body>
+</html>

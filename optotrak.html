@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Optotrak Mount Redesign</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{ box-sizing:border-box; }
+
+html{scroll-behavior:smooth;}
+
+body{
+    margin:0;
+    font-family:Inter;
+    background:#0a0a0a;
+    color:white;
+    padding-top:80px;
+    -webkit-font-smoothing: antialiased;
+}
+
+h1,h2,h3{
+    font-weight:700;
+    letter-spacing:-1px;
+}
+
+/* NAV */
+nav{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    padding:18px 40px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:rgba(10,10,10,0.8);
+    z-index:1000;
+    transition: transform 0.35s ease, background 0.3s ease;
+}
+
+
+nav.hidden{
+    transform: translateY(-100%);
+}
+
+.logo{
+    font-size:1.3rem;
+    font-weight:600;
+    color:white;
+    text-decoration:none;
+}
+
+.nav-links{
+    display:flex;
+    align-items:center;
+    gap:20px;
+}
+
+.nav-links a{
+    color:#aaa;
+    text-decoration:none;
+    font-size:.9rem;
+}
+
+.nav-links a:hover{ color:white; }
+
+.resume-btn{
+    border:1px solid #aaa;
+    padding:8px 16px;
+    border-radius:20px;
+}
+
+.resume-btn:hover{
+    border-color:white;
+    color:white;
+}
+
+/* SECTION BASE */
+.section{
+    position:relative;
+    height:100vh;
+    width:100%;
+    overflow:hidden;
+
+    opacity:0;
+    transform:translateY(40px);
+    transition: all 0.8s ease;
+}
+
+.section.visible{
+    opacity:1;
+    transform:translateY(0);
+}
+
+/* DEFAULT (cinematic) */
+.section img,
+.section video{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+/* ENGINEERING MODE (no crop) */
+.section.contain img,
+.section.contain video{
+    object-fit:contain;
+    background:#000;
+}
+
+/* DARK OVERLAY */
+.section::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(to bottom, rgba(0,0,0,.2), rgba(0,0,0,.9));
+}
+
+/* TEXT */
+.content{
+    position:absolute;
+    z-index:2;
+    top:50%;
+    left:8%;
+    transform:translateY(-50%);
+    max-width:520px;
+}
+
+.content h1{
+    font-size:2.8rem;
+    margin-bottom:15px;
+}
+
+.content p{
+    color:#ccc;
+    line-height:1.6;
+}
+
+/* LIGHT SECTION */
+.section-light{
+    background:#0a0a0a;
+    padding:100px 8%;
+}
+
+/* GRID */
+.breakdown-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:30px;
+}
+
+.breakdown-grid img{
+    width:100%;
+    border-radius:10px;
+}
+
+/* SLIDER */
+.slider{
+    position:absolute;
+    width:100%;
+    height:100%;
+}
+
+.slide{
+    position:absolute;
+    width:100%;
+    height:100%;
+    opacity:0;
+    transition:opacity .5s ease;
+}
+
+.slide img{
+    width:100%;
+    height:100%;
+    object-fit:contain;
+    background:#000;
+}
+
+.slide.active{ opacity:1; }
+
+/* LABEL */
+.label{
+    position:absolute;
+    bottom:8%;
+    left:8%;
+    font-size:1.6rem;
+    font-weight:600;
+    color:white;
+    padding:10px 18px;
+    border-radius:6px;
+    z-index:4;
+}
+
+/* ARROWS */
+.prev,.next{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    background:rgba(0,0,0,0.5);
+    color:white;
+    border:none;
+    font-size:30px;
+    padding:10px 16px;
+    cursor:pointer;
+    z-index:5;
+}
+
+.prev{left:20px;}
+.next{right:20px;}
+
+.prev:hover,.next:hover{
+    background:rgba(0,0,0,0.8);
+}
+
+footer{
+    text-align:center;
+    padding:40px;
+    color:#666;
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+<a href="index.html" class="logo">Leonardo Herrera</a>
+<div class="nav-links">
+    <a href="index.html#work">Selected Work</a>
+    <a href="nasa.html">NASA</a>
+    <a href="countercraft.html">CounterCraft</a>
+    <a href="index.html#contact">Contact</a>
+    <a href="WebsiteImages/Leonardo_Herrera_Resume.pdf" class="resume-btn" target="_blank">Resume</a>
+</div>
+</nav>
+
+<!-- HERO -->
+<div class="section">
+<img src="WebsiteImages/Photos NASA Internship/SDTS.jpg">
+<div class="content">
+<h1>OPTOTRAK MOUNT REDESIGN</h1>
+<p>
+Redesigned a critical mounting interface for a high-precision infrared motion capture system used in spacecraft docking tests.
+</p>
+</div>
+</div>
+
+<div class="section-light">
+
+<h1>ENGINEERING SUMMARY</h1>
+
+<p><strong>Impact</strong></p>
+<p>
+• Eliminated shear-based failure risk in critical measurement system<br>
+• Improved alignment repeatability for docking tests<br>
+• Increased confidence in sensor data used in mission validation
+</p>
+
+<p><strong>Constraints</strong></p>
+<p>
+• Existing hardware interfaces could not be modified<br>
+• Required compatibility with ongoing NASA test operations<br>
+• Needed rapid fabrication and installation turnaround
+</p>
+
+<p><strong>Approach</strong></p>
+<p>
+1. Identified failure mode in current design<br>
+2. Modeled load path and constraints<br>
+3. Developed geometry-based solution<br>
+4. Validated through testing and iteration
+</p>
+
+</div>
+
+<!-- SYSTEM OVERVIEW -->
+<div class="section">
+<img src="WebsiteImages/Photos NASA Internship/Optotrak.jpg">
+<div class="content">
+<h1>SYSTEM OVERVIEW</h1>
+<p>
+Infrared cameras track motion during docking simulations and are mounted to a truss structure requiring high precision and rigidity.
+</p>
+</div>
+</div>
+
+<!-- BREAKDOWN -->
+<div class="section-light">
+
+<h1>SYSTEM BREAKDOWN</h1>
+
+<div class="breakdown-grid">
+
+<div>
+<img src="WebsiteImages/Photos NASA Internship/20220718_115348.jpg">
+<p>Optotrak Camera</p>
+</div>
+
+<div>
+<img src="WebsiteImages/Photos NASA Internship/BrunsonMount.jpg">
+<p>Brunson Mount</p>
+</div>
+
+<div>
+<img src="WebsiteImages/Photos NASA Internship/OldAttachment.jpg">
+<p style="color:white;font-weight:600;">Original Mount</p>
+</div>
+
+<div>
+<img src="WebsiteImages/Photos NASA Internship/Plates2.jpg">
+<p>Truss Structure</p>
+</div>
+
+</div>
+
+</div>
+
+<!-- PROBLEM -->
+<div class="section">
+
+<div class="slider">
+
+<div class="slide active">
+<img src="WebsiteImages/Photos NASA Internship/20220718_104920.jpg">
+<div class="label">Set Screws</div>
+</div>
+
+<div class="slide">
+<img src="WebsiteImages/Photos NASA Internship/NoCameraAttachment.jpg">
+<div class="label">Interface</div>
+</div>
+
+<div class="slide">
+<img src="WebsiteImages/Photos NASA Internship/OldAttachment.jpg">
+<div class="label">Original Mount</div>
+</div>
+
+<button class="prev" onclick="changeSlide(-1)">‹</button>
+<button class="next" onclick="changeSlide(1)">›</button>
+
+</div>
+
+<div class="content">
+<h1>DESIGN PROBLEM</h1>
+<p>
+The original mount relied on set screws in shear, creating risk of loosening and misalignment in a critical measurement system.
+</p>
+</div>
+
+</div>
+
+<!-- CHALLENGE -->
+<div class="section contain">
+<img src="WebsiteImages/Photos NASA Internship/20220930_110725.jpg">
+<div class="content">
+<h1>DESIGN CHALLENGE</h1>
+<p>
+Transfer loads through geometry instead of fasteners while maintaining alignment and ease of installation.
+</p>
+</div>
+</div>
+
+<!-- SOLUTION -->
+<div class="section contain">
+<img src="WebsiteImages/Photos NASA Internship/20220930_110813.jpg">
+<div class="content">
+<h1>ENGINEERING SOLUTION</h1>
+<p>
+Introduced a twist-and-lock interface that carries structural load through geometry, with set screws only used for retention.
+</p>
+</div>
+</div>
+
+<!-- MECHANISM -->
+<div class="section contain">
+<video autoplay muted loop playsinline>
+<source src="WebsiteImages/Photos NASA Internship/OptotrakNew.mp4">
+</video>
+<div class="content">
+<h1>MECHANISM</h1>
+<p>
+Controlled alignment and rotation ensure repeatable installation and structural engagement.
+</p>
+</div>
+</div>
+
+<!-- RESULT -->
+<div class="section contain">
+<img src="WebsiteImages/Photos NASA Internship/Plates.jpg">
+<div class="content">
+<h1>RESULT</h1>
+<p>
+Improved reliability, eliminated shear-based failure risk, and increased measurement accuracy.
+</p>
+</div>
+</div>
+
+<footer>
+© 2026 Leonardo Herrera
+</footer>
+
+<script>
+/* NAV HIDE ON SCROLL */
+let lastScroll = 0;
+const nav = document.querySelector("nav");
+
+window.addEventListener("scroll", () => {
+    let currentScroll = window.pageYOffset;
+
+    if(currentScroll > lastScroll && currentScroll > 80){
+        nav.classList.add("hidden");
+    } else {
+        nav.classList.remove("hidden");
+    }
+
+    lastScroll = currentScroll;
+});
+
+/* SLIDER */
+let currentSlide = 0;
+const slides = document.querySelectorAll(".slide");
+
+function showSlide(index){
+    slides.forEach((slide,i)=>{
+        slide.classList.remove("active");
+        if(i === index) slide.classList.add("active");
+    });
+}
+
+function changeSlide(direction){
+    currentSlide += direction;
+    if(currentSlide < 0) currentSlide = slides.length - 1;
+    if(currentSlide >= slides.length) currentSlide = 0;
+    showSlide(currentSlide);
+}
+
+/* FADE-IN SECTIONS */
+const sections = document.querySelectorAll(".section");
+
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if(entry.isIntersecting){
+            entry.target.classList.add("visible");
+        }
+    });
+},{ threshold: 0.2 });
+
+sections.forEach(section => observer.observe(section));
+</script>
+
+</body>
+</html>

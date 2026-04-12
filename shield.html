@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Deployable Shield Mechanism</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+
+body{
+margin:0;
+font-family:Inter;
+background:#0a0a0a;
+color:white;
+padding-top:80px;
+-webkit-font-smoothing: antialiased;
+}
+
+h1,h2,h3{
+font-weight:700;
+letter-spacing:-1px;
+}
+
+/* NAV */
+nav{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    padding:18px 40px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:rgba(10,10,10,0.8);
+    z-index:1000;
+    transition: transform 0.35s ease, background 0.3s ease;
+}
+
+nav.hidden{
+transform: translateY(-100%);
+}
+
+/* LOGO */
+.logo{
+font-size:1.3rem;
+font-weight:600;
+color:white;
+text-decoration:none;
+white-space:nowrap;
+}
+
+/* LINKS */
+.nav-links{
+display:flex;
+align-items:center;
+gap:20px;
+flex-shrink:0;
+}
+
+.nav-links a{
+color:#aaa;
+text-decoration:none;
+font-size:.9rem;
+white-space:nowrap;
+}
+
+.nav-links a:hover{
+color:white;
+}
+
+/* RESUME BUTTON */
+.resume-btn{
+border:1px solid #aaa;
+padding:8px 16px;
+border-radius:20px;
+}
+
+.resume-btn:hover{
+border-color:white;
+color:white;
+}
+
+/* SECTION */
+.section{
+position:relative;
+height:100vh;
+overflow:hidden;
+}
+
+/* LIGHT SECTION */
+.section-light{
+    background:#0a0a0a;
+    padding:100px 8%;
+}
+
+
+/* DEFAULT (cinematic) */
+.section img,
+.section video{
+width:100%;
+height:100%;
+object-fit:cover;
+}
+
+/* ENGINEERING MODE (no crop) */
+.section.contain img,
+.section.contain video{
+object-fit:contain;
+background:#000;
+}
+
+/* OVERLAY */
+.section::after{
+content:"";
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:linear-gradient(to bottom, rgba(0,0,0,.2), rgba(0,0,0,.9));
+}
+
+/* TEXT */
+.content{
+position:absolute;
+top:50%;
+left:8%;
+transform:translateY(-50%);
+max-width:600px;
+z-index:2;
+}
+
+.content h1{
+font-size:2.8rem;
+margin-bottom:15px;
+}
+
+.content p{
+color:#ccc;
+line-height:1.6;
+}
+
+/* LIGHT SECTION */
+.section-light{
+padding:100px 8%;
+background:#0a0a0a;
+}
+
+footer{
+text-align:center;
+padding:40px;
+color:#666;
+}
+
+/* MOBILE */
+@media(max-width:800px){
+.content{
+left:5%;
+right:5%;
+}
+.content h1{
+font-size:2.2rem;
+}
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAV -->
+<nav>
+<a href="index.html" class="logo">Leonardo Herrera</a>
+
+<div class="nav-links">
+<a href="index.html#work">Selected Work</a>
+<a href="nasa.html">NASA</a>
+<a href="countercraft.html">CounterCraft</a>
+<a href="index.html#contact">Contact</a>
+<a href="WebsiteImages/Leonardo_Herrera_Resume.pdf" class="resume-btn" target="_blank">Resume</a>
+</div>
+</nav>
+
+<!-- HERO -->
+<div class="section">
+<img src="WebsiteImages/Ball Aerospace/Ball.jpg">
+
+<div class="content">
+<h1>DEPLOYABLE SHIELD MECHANISM</h1>
+<p>
+Designed a lightweight deployable shielding system for spacecraft payloads, creating a scalable mechanism adaptable to 4, 6, and 8-sided geometries.
+</p>
+</div>
+</div>
+
+<div class = "section-light">
+<p><strong>Impact</strong></p>
+<p>
+• Developed deployable mechanism adaptable to multiple geometries<br>
+• Demonstrated controlled expansion and retraction in prototype<br>
+• Validated feasibility of lightweight shielding system for spacecraft
+</p>
+
+<p><strong>Constraints</strong></p>
+<p>
+• Required adaptability for 4, 6, and 8-sided configurations<br>
+• Limited by 3D printing size constraints during prototyping<br>
+• Needed lightweight structure with reliable deployment
+</p>
+
+<p><strong>Approach</strong></p>
+<p>
+1. Defined geometric and deployment requirements<br>
+2. Developed modular linkage-based mechanism<br>
+3. Modeled system in CAD for multiple configurations<br>
+4. Built and tested segmented prototype
+</p>
+</div>
+
+<!-- CONTEXT -->
+<div class="section">
+<img src="WebsiteImages/Ball Aerospace/Ball4.jpg">
+
+<div class="content">
+<h1>PROJECT CONTEXT</h1>
+<p>
+This project was sponsored by Ball Aerospace as part of a senior design program focused on deployable systems for spacecraft payload protection.
+<br><br>
+The objective was to develop a compact mechanism capable of expanding in orbit while remaining lightweight and adaptable to multiple configurations.
+</p>
+</div>
+</div>
+
+<!-- DESIGN CHALLENGE -->
+<div class="section contain">
+<img src="WebsiteImages/Ball Aerospace/Exploded View.PNG">
+
+<div class="content">
+<h1>DESIGN CHALLENGE</h1>
+<p>
+The mechanism needed to support multiple payload geometries (4, 6, and 8 sides) while maintaining a compact stowed configuration.
+<br><br>
+Key requirements:
+<br><br>
+• Adaptability across configurations  
+• Lightweight structure  
+• Controlled deployment  
+• Manufacturability within prototyping constraints  
+</p>
+</div>
+</div>
+
+<!-- ENGINEERING -->
+<div class="section contain">
+<img src="WebsiteImages/Ball Aerospace/Assembly.PNG">
+
+<div class="content">
+<h1>ENGINEERING DESIGN</h1>
+<p>
+Led CAD modeling using SolidWorks and Siemens NX to develop a modular deployable mechanism.
+<br><br>
+The design used linked structural elements to enable controlled expansion while maintaining alignment and stability across configurations.
+</p>
+</div>
+</div>
+
+<!-- PROTOTYPE -->
+<div class="section contain">
+<img src="WebsiteImages/Ball Aerospace/Ball2.jpg">
+
+<div class="content">
+<h1>PROTOTYPING CONSTRAINTS</h1>
+<p>
+Manufacturing limitations due to 3D printer size required redesigning large components into modular sections.
+<br><br>
+Parts were segmented and assembled post-print, maintaining functionality while enabling fabrication within constraints.
+</p>
+</div>
+</div>
+
+<!-- RESULT -->
+<div class="section contain">
+<video autoplay muted loop playsinline>
+<source src="WebsiteImages/Ball Aerospace/Ball.mp4" type="video/mp4">
+</video>
+
+<div class="content">
+<h1>RESULT</h1>
+<p>
+Developed a functional prototype demonstrating controlled deployment and retraction of the shielding system.
+<br><br>
+The mechanism validated adaptability across multiple geometries and demonstrated feasibility for future development.
+</p>
+</div>
+</div>
+
+<footer>
+© 2026 Leonardo Herrera
+</footer>
+
+<script>
+let lastScroll = 0;
+const nav = document.querySelector("nav");
+
+window.addEventListener("scroll", () => {
+let currentScroll = window.pageYOffset;
+
+if(currentScroll > lastScroll && currentScroll > 80){
+    nav.classList.add("hidden");
+} else {
+    nav.classList.remove("hidden");
+}
+
+lastScroll = currentScroll;
+});
+</script>
+
+</body>
+</html>
