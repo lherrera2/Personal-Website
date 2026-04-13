@@ -73,6 +73,41 @@ white-space:nowrap;
 color:white;
 }
 
+/* HAMBURGER */
+.menu-toggle{
+    display:none;
+    font-size:28px;
+    cursor:pointer;
+    color:white;
+}
+
+/* MOBILE NAV */
+@media(max-width:800px){
+
+    .menu-toggle{
+        display:block;
+    }
+
+    .nav-links{
+        position:absolute;
+        top:70px;
+        right:0;
+        width:220px;
+        background:rgba(10,10,10,0.95);
+        flex-direction:column;
+        align-items:flex-start;
+        padding:20px;
+        gap:15px;
+
+        display:none;
+    }
+
+    .nav-links.active{
+        display:flex;
+    }
+
+}
+
 /* RESUME BUTTON */
 .resume-btn{
 border:1px solid #aaa;
@@ -177,12 +212,14 @@ font-size:2.2rem;
 <nav>
 <a href="index.html" class="logo">Leonardo Herrera</a>
 
-<div class="nav-links">
-<a href="index.html#work">Selected Work</a>
-<a href="nasa.html">NASA</a>
-<a href="countercraft.html">CounterCraft</a>
-<a href="index.html#contact">Contact</a>
-<a href="WebsiteImages/Leonardo_Herrera_Resume.pdf" class="resume-btn" target="_blank">Resume</a>
+<div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
+<div class="nav-links" id="navMenu">
+<a href="index.html#work" onclick="toggleMenu()">Selected Work</a>
+<a href="nasa.html" onclick="toggleMenu()">NASA</a>
+<a href="countercraft.html" onclick="toggleMenu()">CounterCraft</a>
+<a href="index.html#contact" onclick="toggleMenu()">Contact</a>
+<a href="WebsiteImages/Leonardo_Herrera_Resume.pdf" class="resume-btn" target="_blank" onclick="toggleMenu()">Resume</a>
 </div>
 </nav>
 
@@ -318,6 +355,12 @@ if(currentScroll > lastScroll && currentScroll > 80){
 
 lastScroll = currentScroll;
 });
+</script>
+
+<script>
+function toggleMenu(){
+    document.getElementById("navMenu").classList.toggle("active");
+}
 </script>
 
 </body>
