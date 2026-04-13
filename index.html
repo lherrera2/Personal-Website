@@ -92,32 +92,55 @@ transform: translateY(-100%);
     color:white;
 }
 
-/* MOBILE NAV */
 @media(max-width:800px){
 
-    .menu-toggle{
-        display:block;
-    }
+        /* HERO */
+        .hero h1{
+            font-size:2.5rem;
+        }
 
-    .nav-links{
-        position:absolute;
-        top:70px;
-        right:0;
-        width:220px;
-        background:rgba(10,10,10,0.95);
-        flex-direction:column;
-        align-items:flex-start;
-        padding:20px;
-        gap:15px;
+        .hero-content{
+            margin-left:5%;
+            margin-right:5%;
+        }
 
-        display:none;
-    }
+        /* ABOUT */
+        .about{
+            flex-direction:column;
+            text-align:center;
+        }
 
-    .nav-links.active{
-        display:flex;
-    }
+        /* FIX IMAGE TEXT (MAIN ISSUE) */
+        .image-text{
+            left:5%;
+            right:5%;
+            transform:translateY(-50%);
+            max-width:100%;
+        }
 
-}
+        /* REMOVE RIGHT-SIDE OFFSET ON MOBILE */
+        .image-text.right{
+            left:5%;
+            right:5%;
+            text-align:left;
+        }
+
+        /* IMPROVE TEXT READABILITY */
+        .image-text h1,
+        .image-text h2{
+            font-size:1.8rem;
+        }
+
+        .image-text p{
+            font-size:1rem;
+        }
+
+        /* OPTIONAL: BETTER SPACING */
+        .image-section{
+            height:90vh;
+        }
+
+        }
 
 /* HERO */
 .hero{position:relative;height:100vh;display:flex;align-items:center;overflow:hidden;}
