@@ -94,53 +94,77 @@ transform: translateY(-100%);
 
 @media(max-width:800px){
 
-        /* HERO */
-        .hero h1{
-            font-size:2.5rem;
-        }
+    /* SHOW HAMBURGER */
+    .menu-toggle{
+        display:block;
+    }
 
-        .hero-content{
-            margin-left:5%;
-            margin-right:5%;
-        }
+    /* MOBILE NAV MENU */
+    .nav-links{
+        position:absolute;
+        top:70px;
+        right:0;
+        width:220px;
+        background:rgba(10,10,10,0.95);
+        flex-direction:column;
+        align-items:flex-start;
+        padding:20px;
+        gap:15px;
 
-        /* ABOUT */
-        .about{
-            flex-direction:column;
-            text-align:center;
-        }
+        display:none;
+    }
 
-        /* FIX IMAGE TEXT (MAIN ISSUE) */
-        .image-text{
-            left:5%;
-            right:5%;
-            transform:translateY(-50%);
-            max-width:100%;
-        }
+    .nav-links.active{
+        display:flex;
+    }
 
-        /* REMOVE RIGHT-SIDE OFFSET ON MOBILE */
-        .image-text.right{
-            left:5%;
-            right:5%;
-            text-align:left;
-        }
+    /* HERO */
+    .hero h1{
+        font-size:2.5rem;
+    }
 
-        /* IMPROVE TEXT READABILITY */
-        .image-text h1,
-        .image-text h2{
-            font-size:1.8rem;
-        }
+    .hero-content{
+        margin-left:5%;
+        margin-right:5%;
+    }
 
-        .image-text p{
-            font-size:1rem;
-        }
+    /* ABOUT */
+    .about{
+        flex-direction:column;
+        text-align:center;
+    }
 
-        /* OPTIONAL: BETTER SPACING */
-        .image-section{
-            height:90vh;
-        }
+    /* 🔥 FIX IMAGE TEXT (THIS FIXES COUNTERCRAFT) */
+    .image-text{
+        left:5% !important;
+        right:5% !important;
+        transform:translateY(-50%);
+        max-width:100%;
+    }
 
-        }
+    /* 🔥 FORCE REMOVE RIGHT OFFSET */
+    .image-text.right{
+        left:5% !important;
+        right:5% !important;
+        text-align:left;
+    }
+
+    /* TEXT SIZE */
+    .image-text h1,
+    .image-text h2{
+        font-size:1.8rem;
+    }
+
+    .image-text p{
+        font-size:1rem;
+    }
+
+    /* SECTION HEIGHT */
+    .image-section{
+        height:90vh;
+    }
+
+}
 
 /* HERO */
 .hero{position:relative;height:100vh;display:flex;align-items:center;overflow:hidden;}
