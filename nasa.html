@@ -256,6 +256,77 @@ font-size:.9rem;
 text-decoration:underline;
 }
 
+/* AWARDS */
+
+.awards-intro{
+    max-width: 700px;
+    margin: 0 auto 40px;
+    text-align: center;
+    opacity: 0.8;
+}
+
+.awards-grid{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    max-width: 900px;
+    margin: auto;
+}
+
+.award-card{
+    background: #111;
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.award-card img{
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.award-info{
+    padding: 15px;
+}
+
+.award-info h3{
+    margin-bottom: 5px;
+}
+
+.award-card:hover{
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+}
+
+.award-date{
+    font-size: 0.8rem;
+    opacity: 0.6;
+    margin-top: 5px;
+}
+
+/* MODAL */
+.modal{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.9);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+}
+
+.modal img{
+    max-width: 85%;
+    max-height: 85%;
+    border-radius: 10px;
+}
+
+/* FOOTER */
 footer{
 text-align:center;
 padding:40px;
@@ -432,6 +503,71 @@ Performed system identification, modeling, and control analysis using MATLAB and
 </div>
 </div>
 
+<!-- AWARDS -->
+<div class="section-light">
+
+<h1>AWARDS & RECOGNITION</h1>
+
+<p class="awards-intro">
+Recognized for engineering contributions to the SDTS program, receiving 2 NASA awards and 2 awards from CACI leadership.
+</p>
+
+<div class="awards-grid">
+
+<div class="award-card" onclick="openModal(this)">
+    <img src="WebsiteImages/NASA Award 2.jpg">
+    <div class="award-info">
+        <h3>NASA Elite Team Award</h3>
+        <p>
+        Recognized for outstanding performance and collaboration in completing the JAXA Docking System test series on schedule within a high-pressure test environment.
+        </p>
+        <p class="award-date">August 2023</p>
+    </div>
+    
+</div>
+
+<div class="award-card" onclick="openModal(this)">
+    <img src="WebsiteImages/CACI Award 2.jpg">
+    <div class="award-info">
+        <h3>CACI Outstanding Performance Award</h3>
+        <p>
+        Awarded for adaptability and teamwork in supporting successful execution of the JAXA Docking System test campaign.
+        </p>
+        <p class="award-date">August 2023</p>
+    </div>
+    
+</div>
+
+<div class="award-card" onclick="openModal(this)">
+    <img src="WebsiteImages/NASA Award 1.jpg">
+    <div class="award-info">
+        <h3>NASA Elite Team Award</h3>
+        <p>
+        Recognized for resilience and teamwork supporting the SpaceX Docking Asset test series and SDTS facility operations.
+        </p>
+        <p class="award-date">September 2022</p>
+    </div>
+</div>
+
+<div class="award-card" onclick="openModal(this)">
+    <img src="WebsiteImages/CACI Award 1.jpg">
+    <div class="award-info">
+        <h3>CACI Outstanding Performance Award</h3>
+        <p>
+        Recognized for supporting 339 test cases for the SpaceX Docking Asset, contributing to SDTS modeling, system performance validation, and certification efforts.
+        </p>
+        <p class="award-date">September 2022</p>
+    </div>
+</div>
+
+</div>
+</div>
+
+<!-- MODAL -->
+<div id="awardModal" class="modal" onclick="closeModal()">
+    <img id="modalImg">
+</div>
+
 <footer>
 © 2026 Leonardo Herrera
 </footer>
@@ -456,6 +592,21 @@ lastScroll = currentScroll;
 <script>
 function toggleMenu(){
     document.getElementById("navMenu").classList.toggle("active");
+}
+</script>
+
+<script>
+function openModal(card){
+    const img = card.querySelector("img");
+    const modal = document.getElementById("awardModal");
+    const modalImg = document.getElementById("modalImg");
+
+    modal.style.display = "flex";
+    modalImg.src = img.src;
+}
+
+function closeModal(){
+    document.getElementById("awardModal").style.display = "none";
 }
 </script>
 
