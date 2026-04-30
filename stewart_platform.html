@@ -110,6 +110,7 @@ nav.hidden{
         height:auto;
         display:flex;
         flex-direction:column;
+        position:relative;
     }
 
     
@@ -120,14 +121,16 @@ nav.hidden{
     
     .content,
     .content-right{
-        position:relative;
-        top:auto;
-        left:auto;
-        right:auto;
-        transform:none;
+        position:static !important;
+        transform:none !important;
+        top:auto !important;
+        left:auto !important;
+        right:auto !important;
         max-width:100%;
         padding:40px 20px;
         text-align:left;
+        z-index:1;
+        order:1;
     }
 
     /* MEDIA BELOW TEXT */
@@ -137,6 +140,7 @@ nav.hidden{
         height:auto;
         max-height:60vh;
         object-fit:cover;
+        order:2;
     }
 
     /* TYPOGRAPHY SCALE */
@@ -324,9 +328,6 @@ footer{
 
 <!-- HERO -->
 <div class="section">
-<video autoplay muted loop playsinline>
-    <source src="WebsiteImages/Stewart Platform/HERO.mp4">
-</video>
 
 <div class="content">
     <h1>STEWART PLATFORM KINEMATICS SIMULATOR</h1>
@@ -335,8 +336,12 @@ footer{
         workspace constraints, and dynamic motion validation for a 6-DOF parallel manipulator.
     </p>
 </div>
-</div>
 
+<video autoplay muted loop playsinline>
+    <source src="WebsiteImages/Stewart Platform/HERO.mp4">
+</video>
+
+</div>
 <!-- ENGINEERING SUMMARY -->
 <div class="section-light">
 <h1>ENGINEERING SUMMARY</h1>
@@ -384,9 +389,6 @@ system constraints, and reliable operation in complex mechanical systems.
 
 <!-- IK -->
 <div class="section contain">
-<video autoplay muted loop playsinline>
-    <source src="WebsiteImages/Stewart Platform/IK.mp4">
-</video>
 
 <div class="content content-right">
     <h1>INVERSE KINEMATICS</h1>
@@ -396,13 +398,15 @@ system constraints, and reliable operation in complex mechanical systems.
         This ensures stable motion while respecting stroke limits and avoiding invalid configurations.
     </p>
 </div>
+
+<video autoplay muted loop playsinline>
+    <source src="WebsiteImages/Stewart Platform/IK.mp4">
+</video>
+
 </div>
 
 <!-- FK -->
 <div class="section contain">
-<video autoplay muted loop playsinline>
-    <source src="WebsiteImages/Stewart Platform/FK.mp4">
-</video>
 
 <div class="content content-right">
     <h1>FORWARD KINEMATICS</h1>
@@ -412,13 +416,15 @@ system constraints, and reliable operation in complex mechanical systems.
         This validates real platform behavior and confirms the system remains within the valid workspace.
     </p>
 </div>
+
+<video autoplay muted loop playsinline>
+    <source src="WebsiteImages/Stewart Platform/FK.mp4">
+</video>
+
 </div>
 
 <!-- DIAMOND -->
 <div class="section">
-<video autoplay muted loop playsinline>
-    <source src="WebsiteImages/Stewart Platform/Diamond.mp4">
-</video>
 
 <div class="content">
     <h1>DIAMOND TRAJECTORY</h1>
@@ -427,6 +433,11 @@ system constraints, and reliable operation in complex mechanical systems.
         while maintaining stable actuator coordination.
     </p>
 </div>
+
+<video autoplay muted loop playsinline>
+    <source src="WebsiteImages/Stewart Platform/Diamond.mp4">
+</video>
+
 </div>
 
 <!-- COINING -->
@@ -481,7 +492,6 @@ and automatically rejected before they could affect system stability.
 
 <!-- RESULT -->
 <div class="section contain">
-<img src="WebsiteImages/Stewart Platform/Result.png" alt="Final Stewart Platform Simulation">
 
 <div class="content content-right">
     <h1>FINAL SYSTEM</h1>
@@ -490,6 +500,9 @@ and automatically rejected before they could affect system stability.
         motion control, and constraint validation.
     </p>
 </div>
+
+<img src="WebsiteImages/Stewart Platform/Result.png" alt="Final Stewart Platform Simulation">
+
 </div>
 
 <!-- KEY INSIGHT -->
