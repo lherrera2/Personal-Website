@@ -105,21 +105,51 @@ nav.hidden{
         display:flex;
     }
 
-    .content{
-        left:5%;
-        right:5%;
-        max-width:100%;
+    
+    .section{
+        height:auto;
+        display:flex;
+        flex-direction:column;
     }
 
+    
+    .section::after{
+        display:none;
+    }
+
+    
+    .content,
     .content-right{
-        left:5%;
-        right:5%;
-        top:50%;
-        transform:translateY(-50%);
+        position:relative;
+        top:auto;
+        left:auto;
+        right:auto;
+        transform:none;
+        max-width:100%;
+        padding:40px 20px;
+        text-align:left;
     }
 
+    /* MEDIA BELOW TEXT */
+    .section video,
+    .section img{
+        width:100%;
+        height:auto;
+        max-height:60vh;
+        object-fit:cover;
+    }
+
+    /* TYPOGRAPHY SCALE */
     .content h1{
-        font-size:2rem;
+        font-size:1.9rem;
+    }
+
+    .content p{
+        font-size:0.95rem;
+    }
+
+    .section-light{
+        padding:80px 6%;
     }
 }
 
