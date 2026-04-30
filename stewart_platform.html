@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stewart Platform Simulator</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+
+body{
+    margin:0;
+    font-family:Inter, sans-serif;
+    background:#0a0a0a;
+    color:white;
+    padding-top:80px;
+    -webkit-font-smoothing:antialiased;
+}
+
+/* NAV */
+nav{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    padding:18px 40px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:rgba(10,10,10,0.85);
+    z-index:1000;
+    transition:transform 0.35s ease;
+    backdrop-filter:blur(10px);
+}
+
+nav.hidden{
+    transform:translateY(-100%);
+}
+
+.logo{
+    font-size:1.2rem;
+    font-weight:600;
+    color:white;
+    text-decoration:none;
+}
+
+.nav-links{
+    display:flex;
+    align-items:center;
+    gap:22px;
+}
+
+.nav-links a{
+    color:#aaa;
+    text-decoration:none;
+    font-size:.92rem;
+}
+
+.nav-links a:hover{
+    color:white;
+}
+
+.resume-btn{
+    border:1px solid #aaa;
+    padding:8px 16px;
+    border-radius:20px;
+}
+
+.resume-btn:hover{
+    border-color:white;
+    color:white;
+}
+
+/* HAMBURGER */
+.menu-toggle{
+    display:none;
+    font-size:28px;
+    cursor:pointer;
+    color:white;
+}
+
+/* MOBILE NAV */
+@media(max-width:800px){
+
+    .menu-toggle{
+        display:block;
+    }
+
+    .nav-links{
+        position:absolute;
+        top:70px;
+        right:0;
+        width:220px;
+        background:rgba(10,10,10,0.95);
+        flex-direction:column;
+        align-items:flex-start;
+        padding:20px;
+        gap:15px;
+        display:none;
+    }
+
+    .nav-links.active{
+        display:flex;
+    }
+
+    .content{
+        left:5%;
+        right:5%;
+        max-width:100%;
+    }
+
+    .content-right{
+        left:5%;
+        right:5%;
+        top:50%;
+        transform:translateY(-50%);
+    }
+
+    .content h1{
+        font-size:2rem;
+    }
+}
+
+/* SECTION */
+.section{
+    position:relative;
+    height:100vh;
+    overflow:hidden;
+    opacity:0;
+    transform:translateY(40px);
+    transition:all 0.8s ease;
+}
+
+.section.visible{
+    opacity:1;
+    transform:translateY(0);
+}
+
+/* DEFAULT MEDIA */
+.section video,
+.section img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    filter:brightness(1.12);
+}
+
+/* ENGINEERING VIEW */
+.section.contain video,
+.section.contain img{
+    object-fit:contain;
+    background:#000;
+}
+
+/* OVERLAY */
+.section::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(
+        to bottom,
+        rgba(0,0,0,.08),
+        rgba(0,0,0,.55)
+    );
+}
+
+/* CONTENT */
+.content{
+    position:absolute;
+    z-index:2;
+    top:50%;
+    left:8%;
+    transform:translateY(-50%);
+    max-width:560px;
+    text-shadow:0 2px 18px rgba(0,0,0,0.55);
+}
+
+.content-right{
+    left:auto;
+    right:8%;
+    top:35%;
+    transform:translateY(-35%);
+}
+
+.content h1{
+    font-size:3rem;
+    margin-bottom:16px;
+    line-height:1.1;
+}
+
+.content p{
+    color:#d0d0d0;
+    line-height:1.7;
+    font-size:1rem;
+}
+
+/* LIGHT CONTENT */
+.section-light{
+    padding:110px 8%;
+    max-width:1300px;
+    margin:auto;
+}
+
+.section-light h1{
+    font-size:2.2rem;
+    margin-bottom:30px;
+}
+
+.section-light h2{
+    font-size:1.2rem;
+    margin-top:40px;
+    margin-bottom:10px;
+}
+
+.section-light p{
+    color:#c7c7c7;
+    line-height:1.7;
+}
+
+/* GRID */
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:30px;
+    margin-top:30px;
+}
+
+.card{
+    background:#111;
+    border:1px solid rgba(255,255,255,0.05);
+    border-radius:16px;
+    padding:24px;
+}
+
+.card h3{
+    margin-top:0;
+    font-size:1rem;
+}
+
+.grid img{
+    width:100%;
+    border-radius:12px;
+}
+
+/* FLOW */
+.flow{
+    margin-top:30px;
+    padding:30px;
+    background:#111;
+    border-radius:18px;
+    border:1px solid rgba(255,255,255,0.06);
+}
+
+.flow-step{
+    padding:12px 0;
+    font-size:1rem;
+    color:#ddd;
+}
+
+.arrow{
+    color:#666;
+    font-size:1.2rem;
+}
+
+footer{
+    text-align:center;
+    padding:50px;
+    color:#666;
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAV -->
+<nav>
+<a href="index.html" class="logo">Leonardo Herrera</a>
+
+<div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
+<div class="nav-links" id="navMenu">
+    <a href="index.html#work" onclick="toggleMenu()">Selected Work</a>
+    <a href="nasa.html" onclick="toggleMenu()">NASA</a>
+    <a href="countercraft.html" onclick="toggleMenu()">CounterCraft</a>
+    <a href="index.html#contact" onclick="toggleMenu()">Contact</a>
+    <a href="WebsiteImages/Leonardo_Herrera_Resume.pdf"
+       class="resume-btn"
+       target="_blank"
+       onclick="toggleMenu()">Resume</a>
+</div>
+</nav>
+
+<!-- HERO -->
+<div class="section">
+<video autoplay muted loop playsinline>
+    <source src="WebsiteImages/Stewart Platform/HERO.mp4">
+</video>
+
+<div class="content">
+    <h1>STEWART PLATFORM KINEMATICS SIMULATOR</h1>
+    <p>
+        Real-time inverse and forward kinematics with singularity detection,
+        workspace constraints, and dynamic motion validation for a 6-DOF parallel manipulator.
+    </p>
+</div>
+</div>
+
+<!-- ENGINEERING SUMMARY -->
+<div class="section-light">
+<h1>ENGINEERING SUMMARY</h1>
+
+<h2>Impact</h2>
+<p>
+• Developed a full 6-DOF Stewart platform simulator for motion control and workspace validation<br>
+• Built inverse kinematics for direct platform positioning and forward kinematics for pose reconstruction<br>
+• Added singularity detection to identify unstable platform positions before failure could occur<br>
+• Applied actuator stroke limits and workspace constraints to ensure safe, realistic motion
+</p>
+
+<h2>Challenges</h2>
+<p>
+• Solving forward kinematics with multiple possible platform positions<br>
+• Preventing unstable motion near singular configurations<br>
+• Keeping all movement within safe and physically reachable limits
+</p>
+
+<h2>Engineering Value</h2>
+<p>
+Stewart platforms are used in aerospace docking systems, flight simulators,
+robotic positioning systems, and precision manufacturing.
+This project demonstrates practical understanding of motion control,
+system constraints, and reliable operation in complex mechanical systems.
+</p>
+</div>
+
+<!-- SOLVER -->
+<div class="section-light">
+<h1>SOLVER ARCHITECTURE</h1>
+
+<div class="flow">
+    <div class="flow-step">Desired Platform Pose</div>
+    <div class="arrow">↓</div>
+    <div class="flow-step">Inverse Kinematics Solver</div>
+    <div class="arrow">↓</div>
+    <div class="flow-step">Leg Length Validation</div>
+    <div class="arrow">↓</div>
+    <div class="flow-step">Jacobian Condition Number Check</div>
+    <div class="arrow">↓</div>
+    <div class="flow-step">Accept / Reject Configuration</div>
+</div>
+</div>
+
+<!-- IK -->
+<div class="section contain">
+<video autoplay muted loop playsinline>
+    <source src="WebsiteImages/Stewart Platform/IK.mp4">
+</video>
+
+<div class="content content-right">
+    <h1>INVERSE KINEMATICS</h1>
+    <p>
+        Inverse kinematics allows direct control of platform position and orientation
+        by calculating the required actuator lengths for each desired pose.
+        This ensures stable motion while respecting stroke limits and avoiding invalid configurations.
+    </p>
+</div>
+</div>
+
+<!-- FK -->
+<div class="section contain">
+<video autoplay muted loop playsinline>
+    <source src="WebsiteImages/Stewart Platform/FK.mp4">
+</video>
+
+<div class="content content-right">
+    <h1>FORWARD KINEMATICS</h1>
+    <p>
+        Forward kinematics reconstructs platform position from actuator lengths
+        using an iterative nonlinear solver.
+        This validates real platform behavior and confirms the system remains within the valid workspace.
+    </p>
+</div>
+</div>
+
+<!-- DIAMOND -->
+<div class="section">
+<video autoplay muted loop playsinline>
+    <source src="WebsiteImages/Stewart Platform/Diamond.mp4">
+</video>
+
+<div class="content">
+    <h1>DIAMOND TRAJECTORY</h1>
+    <p>
+        Structured motion profile used to validate controlled traversal of workspace extremes
+        while maintaining stable actuator coordination.
+    </p>
+</div>
+</div>
+
+<!-- COINING -->
+<div class="section">
+<video autoplay muted loop playsinline>
+    <source src="WebsiteImages/Stewart Platform/Coining.mp4">
+</video>
+
+<div class="content">
+    <h1>COINING MOTION</h1>
+    <p>
+        Continuous coordinated tilt and rotation demonstrating dynamic multi-axis control
+        and realistic actuation behavior across constrained motion paths.
+    </p>
+</div>
+</div>
+
+<!-- SINGULARITY ANALYSIS -->
+<div class="section-light">
+<h1>SINGULARITY ANALYSIS</h1>
+<p>
+Certain platform positions create singularities where small actuator movements
+can cause large, unstable platform motion.
+These unsafe conditions were detected using Jacobian condition number analysis
+and automatically rejected before they could affect system stability.
+</p>
+
+<div class="grid">
+
+<div class="card">
+    <img src="WebsiteImages/Stewart Platform/Stable.png" alt="Stable configuration">
+    <h3>Stable Configuration</h3>
+    <p>
+        Condition Number: 2.3<br>
+        Normal operating region with predictable motion,
+        reliable solver convergence, and safe actuator response.
+    </p>
+</div>
+
+<div class="card">
+    <img src="WebsiteImages/Stewart Platform/Singularity.png" alt="Singular configuration">
+    <h3>Singular Configuration</h3>
+    <p>
+        Condition Number: 423010.7<br>
+        Unstable pose where very small actuator changes
+        create large platform movement and unreliable system behavior.
+    </p>
+</div>
+
+</div>
+</div>
+
+<!-- RESULT -->
+<div class="section contain">
+<img src="WebsiteImages/Stewart Platform/Result.png" alt="Final Stewart Platform Simulation">
+
+<div class="content content-right">
+    <h1>FINAL SYSTEM</h1>
+    <p>
+        Complete integrated simulation of inverse kinematics, forward kinematics,
+        motion control, and constraint validation.
+    </p>
+</div>
+</div>
+
+<!-- KEY INSIGHT -->
+<div class="section-light">
+<h1>KEY INSIGHT</h1>
+<p>
+Forward kinematics in Stewart platforms is highly sensitive to starting conditions
+and physical constraints.
+Reliable motion control depends on solver stability, workspace validation,
+and avoiding singular positions that can create unsafe platform behavior.
+</p>
+</div>
+
+<footer>
+© 2026 Leonardo Herrera
+</footer>
+
+<script>
+/* NAV HIDE */
+let lastScroll = 0;
+const nav = document.querySelector("nav");
+
+window.addEventListener("scroll", () => {
+    const currentScroll = window.pageYOffset;
+
+    if(currentScroll > lastScroll && currentScroll > 80){
+        nav.classList.add("hidden");
+    } else {
+        nav.classList.remove("hidden");
+    }
+
+    lastScroll = currentScroll;
+});
+
+/* FADE-IN */
+const sections = document.querySelectorAll(".section");
+
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if(entry.isIntersecting){
+            entry.target.classList.add("visible");
+        }
+    });
+}, { threshold: 0.2 });
+
+sections.forEach(section => observer.observe(section));
+
+/* MOBILE MENU */
+function toggleMenu(){
+    document.getElementById("navMenu").classList.toggle("active");
+}
+</script>
+
+</body>
+</html>
