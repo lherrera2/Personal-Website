@@ -167,9 +167,507 @@ line-height:1.6;
 font-size:1.05rem;
 }
 
-/* subtle section separator like SpaceX */
+
 .section + .section{
 margin-top:2px;
+}
+
+/* =========================
+   SELECTED CAD WORK
+========================= */
+
+.cad-gallery{
+    background:#0a0a0a;
+    padding:120px 8% 140px;
+}
+
+
+/* =========================
+   GALLERY HEADER
+========================= */
+
+.gallery-header{
+    max-width:760px;
+    margin:0 auto 70px;
+    text-align:center;
+}
+
+.gallery-header h2{
+    font-size:2.8rem;
+    margin:0 0 20px;
+    letter-spacing:-1.5px;
+}
+
+.gallery-header p{
+    color:#aaa;
+    line-height:1.7;
+    font-size:1rem;
+    margin:0;
+}
+
+
+/* =========================
+   GALLERY STATS
+========================= */
+
+.gallery-stats{
+    max-width:900px;
+    margin:0 auto 80px;
+
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+
+    border-top:1px solid #222;
+    border-bottom:1px solid #222;
+}
+
+.gallery-stat{
+    padding:28px 20px;
+    text-align:center;
+}
+
+.gallery-stat + .gallery-stat{
+    border-left:1px solid #222;
+}
+
+.gallery-stat strong{
+    display:block;
+    font-size:1.8rem;
+    margin-bottom:7px;
+}
+
+.gallery-stat span{
+    color:#777;
+    font-size:.75rem;
+    text-transform:uppercase;
+    letter-spacing:1px;
+}
+
+
+/* =========================
+   GALLERY SECTION TITLES
+========================= */
+
+.gallery-section-title{
+    max-width:1200px;
+    margin:0 auto 30px;
+}
+
+.gallery-section-title h3{
+    font-size:1rem;
+    color:#777;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    margin:0;
+}
+
+
+/* =========================
+   FEATURED PROJECTS
+========================= */
+
+.featured-grid{
+    max-width:1200px;
+    margin:0 auto 100px;
+
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
+}
+
+
+/* =========================
+   GENERAL GALLERY CARD
+========================= */
+
+.gallery-card{
+    position:relative;
+    overflow:hidden;
+    background:#111;
+    cursor:pointer;
+    min-height:360px;
+}
+
+.gallery-card.featured-large{
+    grid-column:span 2;
+    min-height:560px;
+}
+
+.gallery-card img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+
+    transition:transform .5s ease;
+}
+
+.gallery-card:hover img{
+    transform:scale(1.035);
+}
+
+
+/* IMAGE OVERLAY */
+
+.gallery-card::after{
+    content:"";
+    position:absolute;
+    inset:0;
+
+    background:linear-gradient(
+        to top,
+        rgba(0,0,0,.9),
+        rgba(0,0,0,.05) 65%
+    );
+
+    pointer-events:none;
+}
+
+
+/* =========================
+   FEATURED CARD TEXT
+========================= */
+
+.gallery-info{
+    position:absolute;
+    z-index:2;
+
+    left:0;
+    bottom:0;
+
+    width:100%;
+    padding:30px;
+}
+
+.gallery-number{
+    color:#888;
+    font-size:.7rem;
+    letter-spacing:2px;
+    margin-bottom:9px;
+}
+
+.gallery-info h4{
+    margin:0 0 7px;
+
+    font-size:1.3rem;
+    letter-spacing:-.5px;
+}
+
+.gallery-info p{
+    margin:0;
+
+    color:#bbb;
+    font-size:.85rem;
+    line-height:1.5;
+}
+
+
+/* =========================
+   ADDITIONAL PROJECTS
+========================= */
+
+.additional-projects{
+    max-width:1200px;
+    margin:0 auto;
+}
+
+.project-group{
+    margin-bottom:100px;
+}
+
+
+/* GROUP TITLE */
+
+.project-group-title{
+    margin-bottom:30px;
+}
+
+.project-group-title h3{
+    margin:0 0 8px;
+
+    font-size:1rem;
+    color:#777;
+
+    text-transform:uppercase;
+    letter-spacing:2px;
+}
+
+.project-group-title p{
+    margin:0;
+
+    color:#666;
+    font-size:.9rem;
+}
+
+
+/* =========================
+   SCHOOL PROJECT GRID
+========================= */
+
+.school-grid{
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:18px;
+}
+
+
+/* =========================
+   SPECIALTY PROJECT GRID
+========================= */
+
+.specialty-grid{
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:18px;
+}
+
+
+/* =========================
+   ADDITIONAL PROJECT CARDS
+========================= */
+
+.additional-card{
+    position:relative;
+    overflow:hidden;
+
+    background:#111;
+
+    cursor:pointer;
+
+    min-height:300px;
+}
+
+.additional-card.large{
+    grid-column:span 2;
+    min-height:430px;
+}
+
+.additional-card img{
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    display:block;
+
+    transition:transform .5s ease;
+}
+
+.additional-card:hover img{
+    transform:scale(1.035);
+}
+
+
+/* ADDITIONAL CARD OVERLAY */
+
+.additional-card::after{
+    content:"";
+
+    position:absolute;
+    inset:0;
+
+    background:linear-gradient(
+        to top,
+        rgba(0,0,0,.9),
+        rgba(0,0,0,.05) 65%
+    );
+
+    pointer-events:none;
+}
+
+
+/* =========================
+   ADDITIONAL CARD TEXT
+========================= */
+
+.additional-info{
+    position:absolute;
+
+    z-index:2;
+
+    left:0;
+    bottom:0;
+
+    width:100%;
+
+    padding:25px;
+}
+
+.additional-number{
+    color:#888;
+
+    font-size:.65rem;
+
+    letter-spacing:2px;
+
+    margin-bottom:8px;
+}
+
+.additional-info h4{
+    margin:0 0 6px;
+
+    font-size:1.1rem;
+
+    letter-spacing:-.3px;
+}
+
+.additional-info p{
+    margin:0;
+
+    color:#bbb;
+
+    font-size:.82rem;
+
+    line-height:1.5;
+}
+
+
+/* =========================
+   IMAGE MODAL
+========================= */
+
+.image-modal{
+    display:none;
+
+    position:fixed;
+
+    z-index:2000;
+
+    inset:0;
+
+    background:rgba(0,0,0,.96);
+
+    align-items:center;
+    justify-content:center;
+
+    padding:40px;
+}
+
+.image-modal.active{
+    display:flex;
+}
+
+.image-modal img{
+    max-width:95%;
+    max-height:90vh;
+
+    object-fit:contain;
+}
+
+.modal-close{
+    position:absolute;
+
+    top:20px;
+    right:32px;
+
+    color:white;
+
+    font-size:38px;
+
+    font-weight:300;
+
+    cursor:pointer;
+
+    line-height:1;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:800px){
+
+    .cad-gallery{
+        padding:90px 6% 100px;
+    }
+
+
+    /* HEADER */
+
+    .gallery-header{
+        margin-bottom:50px;
+    }
+
+    .gallery-header h2{
+        font-size:2.1rem;
+    }
+
+
+    /* STATS */
+
+    .gallery-stats{
+        grid-template-columns:1fr;
+
+        margin-bottom:60px;
+    }
+
+    .gallery-stat + .gallery-stat{
+        border-left:none;
+
+        border-top:1px solid #222;
+    }
+
+
+    /* FEATURED */
+
+    .featured-grid{
+        grid-template-columns:1fr;
+
+        margin-bottom:80px;
+    }
+
+    .gallery-card.featured-large{
+        grid-column:span 1;
+
+        min-height:380px;
+    }
+
+    .gallery-card{
+        min-height:300px;
+    }
+
+
+    /* ADDITIONAL PROJECTS */
+
+    .school-grid{
+        grid-template-columns:1fr;
+    }
+
+    .specialty-grid{
+        grid-template-columns:1fr;
+    }
+
+    .additional-card{
+        min-height:280px;
+    }
+
+    .additional-card.large{
+        grid-column:span 1;
+
+        min-height:350px;
+    }
+
+    .project-group{
+        margin-bottom:75px;
+    }
+
+
+    /* MODAL */
+
+    .image-modal{
+        padding:20px;
+    }
+
+    .modal-close{
+        top:15px;
+        right:20px;
+    }
+
 }
 
 footer{
@@ -289,6 +787,576 @@ Delivered production-ready designs that streamlined fabrication and supported su
 </div>
 </div>
 
+<!-- =========================
+     SELECTED CAD WORK
+========================= -->
+
+<section class="cad-gallery">
+
+    <div class="gallery-header">
+
+        <h2>SELECTED CAD WORK</h2>
+
+        <p>
+            A selection of custom commercial equipment and sheet-metal
+            assemblies developed in SolidWorks during my time at CounterCraft.
+            These projects represent the scale, variety, and complexity of
+            production work I contributed to.
+        </p>
+
+    </div>
+
+
+    <!-- STATS -->
+
+    <div class="gallery-stats">
+
+        <div class="gallery-stat">
+            <strong>15</strong>
+            <span>Selected Designs</span>
+        </div>
+
+        <div class="gallery-stat">
+            <strong>700+</strong>
+            <span>Parts — Largest Assembly</span>
+        </div>
+
+        <div class="gallery-stat">
+            <strong>300–400</strong>
+            <span>Parts — Large Assemblies</span>
+        </div>
+
+    </div>
+
+
+    <!-- FEATURED PROJECTS -->
+
+    <div class="gallery-section-title">
+        <h3>Featured Projects</h3>
+    </div>
+
+
+    <div class="featured-grid">
+
+
+        <!-- PROJECT 01 -->
+
+        <div class="gallery-card featured-large"
+             onclick="openModal('WebsiteImages/CounterCraft/Gallery/Project8.png')">
+
+            <img
+                src="WebsiteImages/CounterCraft/Gallery/Project8.png"
+                alt="700-part custom counter assembly"
+                loading="lazy"
+            >
+
+            <div class="gallery-info">
+
+                <div class="gallery-number">
+                    PROJECT 01 · 700+ PARTS
+                </div>
+
+                <h4>Morristown HS — Largest Counter Assembly</h4>
+
+                <p>
+                    The largest counter assembly fabricated by CounterCraft,
+                    consisting of more than 700 individually modeled parts.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- PROJECT 02 -->
+
+        <div class="gallery-card"
+             onclick="openModal('WebsiteImages/CounterCraft/Gallery/Project6.png')">
+
+            <img
+                src="WebsiteImages/CounterCraft/Gallery/Project6.png"
+                alt="Starbucks counter at Collin College"
+                loading="lazy"
+            >
+
+            <div class="gallery-info">
+
+                <div class="gallery-number">
+                    PROJECT 02
+                </div>
+
+                <h4>Starbucks — Collin College</h4>
+
+                <p>
+                    Custom commercial counter developed in SolidWorks
+                    for a Starbucks installation at Collin College.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- PROJECT 03 -->
+
+        <div class="gallery-card"
+             onclick="openModal('WebsiteImages/CounterCraft/Gallery/Project5.png')">
+
+            <img
+                src="WebsiteImages/CounterCraft/Gallery/Project5.png"
+                alt="Custom uniquely shaped cashier counter"
+                loading="lazy"
+            >
+
+            <div class="gallery-info">
+
+                <div class="gallery-number">
+                    PROJECT 03
+                </div>
+
+                <h4>Custom Cashier Counter</h4>
+
+                <p>
+                    Uniquely shaped cashier counter requiring custom
+                    geometry and detailed assembly modeling.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- PROJECT 04 -->
+
+        <div class="gallery-card"
+             onclick="openModal('WebsiteImages/CounterCraft/Gallery/Project13.png')">
+
+            <img
+                src="WebsiteImages/CounterCraft/Gallery/Project13.png"
+                alt="Custom radius counter assembly"
+                loading="lazy"
+            >
+
+            <div class="gallery-info">
+
+                <div class="gallery-number">
+                    PROJECT 04
+                </div>
+
+                <h4>Radius Counter</h4>
+
+                <p>
+                    Curved commercial counter developed as a
+                    multi-component sheet-metal assembly.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- PROJECT 05 -->
+
+        <div class="gallery-card"
+             onclick="openModal('WebsiteImages/CounterCraft/Gallery/Project1.png')">
+
+            <img
+                src="WebsiteImages/CounterCraft/Gallery/Project1.png"
+                alt="Large commercial counter assembly"
+                loading="lazy"
+            >
+
+            <div class="gallery-info">
+
+                <div class="gallery-number">
+                    PROJECT 05 · 300–400 PARTS
+                </div>
+
+                <h4>Large-Scale Counter Assembly</h4>
+
+                <p>
+                    Large commercial assembly consisting of hundreds
+                    of individually modeled components.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+     ADDITIONAL COUNTER PROJECTS
+========================= -->
+
+<div class="additional-projects">
+
+
+    <!-- =====================
+         EDUCATIONAL FACILITIES
+    ====================== -->
+
+    <div class="project-group">
+
+        <div class="project-group-title">
+
+            <h3>Educational Facilities</h3>
+
+            <p>
+                Additional large-scale commercial counter assemblies
+                developed for educational facilities.
+            </p>
+
+        </div>
+
+
+        <div class="school-grid">
+
+
+            <!-- PROJECT 06 -->
+
+            <div class="additional-card"
+                 onclick="openModal('WebsiteImages/CounterCraft/Gallery/Project2.png')">
+
+                <img
+                    src="WebsiteImages/CounterCraft/Gallery/Project2.png"
+                    alt="Custom counter assembly for school"
+                    loading="lazy"
+                >
+
+                <div class="additional-info">
+
+                    <div class="additional-number">
+                        PROJECT 06
+                    </div>
+
+                    <h4>Salado New HS</h4>
+
+                    <p>
+                        Large-scale custom counter assembly.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- PROJECT 07 -->
+
+            <div class="additional-card"
+                 onclick="openModal('WebsiteImages/CounterCraft/Gallery/Project3.png')">
+
+                <img
+                    src="WebsiteImages/CounterCraft/Gallery/Project3.png"
+                    alt="Custom school counter"
+                    loading="lazy"
+                >
+
+                <div class="additional-info">
+
+                    <div class="additional-number">
+                        PROJECT 07
+                    </div>
+
+                    <h4>McKee IS</h4>
+
+                    <p>
+                        Custom commercial equipment assembly.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- PROJECT 08 -->
+
+            <div class="additional-card"
+                 onclick="openModal('WebsiteImages/CounterCraft/Gallery/Project4.png')">
+
+                <img
+                    src="WebsiteImages/CounterCraft/Gallery/Project4.png"
+                    alt="Large custom school counter"
+                    loading="lazy"
+                >
+
+                <div class="additional-info">
+
+                    <div class="additional-number">
+                        PROJECT 08
+                    </div>
+
+                    <h4>McDaniel IS</h4>
+
+                    <p>
+                        Production-ready SolidWorks assembly.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- PROJECT 09 -->
+
+            <div class="additional-card"
+                 onclick="openModal('WebsiteImages/CounterCraft/Gallery/Project7.png')">
+
+                <img
+                    src="WebsiteImages/CounterCraft/Gallery/Project7.png"
+                    alt="Custom commercial counter for school"
+                    loading="lazy"
+                >
+
+                <div class="additional-info">
+
+                    <div class="additional-number">
+                        PROJECT 09
+                    </div>
+
+                    <h4>Newcastle HS</h4>
+
+                    <p>
+                        Large multi-component counter assembly.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- PROJECT 10 -->
+
+            <div class="additional-card"
+                 onclick="openModal('WebsiteImages/CounterCraft/Gallery/Project9.png')">
+
+                <img
+                    src="WebsiteImages/CounterCraft/Gallery/Project9.png"
+                    alt="Custom school counter assembly"
+                    loading="lazy"
+                >
+
+                <div class="additional-info">
+
+                    <div class="additional-number">
+                        PROJECT 10
+                    </div>
+
+                    <h4>Mendez ES</h4>
+
+                    <p>
+                        Custom sheet-metal assembly.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- PROJECT 11 -->
+
+            <div class="additional-card"
+                 onclick="openModal('WebsiteImages/CounterCraft/Gallery/Project14.png')">
+
+                <img
+                    src="WebsiteImages/CounterCraft/Gallery/Project14.png"
+                    alt="Large-scale school counter"
+                    loading="lazy"
+                >
+
+                <div class="additional-info">
+
+                    <div class="additional-number">
+                        PROJECT 11
+                    </div>
+
+                    <h4>OKC Bell Isle Enterprise HS</h4>
+
+                    <p>
+                        Large-scale commercial counter design.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================
+         RADIUS & SPECIALTY
+    ====================== -->
+
+    <div class="project-group">
+
+        <div class="project-group-title">
+
+            <h3>Radius & Specialty Projects</h3>
+
+            <p>
+                Custom geometry and specialized commercial counter
+                assemblies developed for unique applications.
+            </p>
+
+        </div>
+
+
+        <div class="specialty-grid">
+
+
+            <!-- PROJECT 12
+                 GRAND OAKS -->
+
+            <div class="additional-card large"
+                 onclick="openModal('WebsiteImages/CounterCraft/Gallery/Project10.png')">
+
+                <img
+                    src="WebsiteImages/CounterCraft/Gallery/Project10.png"
+                    alt="Six radius counters for Grand Oaks Feeder High School"
+                    loading="lazy"
+                >
+
+                <div class="additional-info">
+
+                    <div class="additional-number">
+                        PROJECT 12 · SIX COUNTERS
+                    </div>
+
+                    <h4>Grand Oaks Feeder HS — Radius Counters</h4>
+
+                    <p>
+                        Six custom radius counter assemblies developed
+                        for the same educational project.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- PROJECT 13
+                 TEXAS A&M -->
+
+            <div class="additional-card"
+                 onclick="openModal('WebsiteImages/CounterCraft/Gallery/Project15.png')">
+
+                <img
+                    src="WebsiteImages/CounterCraft/Gallery/Project15.png"
+                    alt="Custom counter for Texas A&M University Texarkana"
+                    loading="lazy"
+                >
+
+                <div class="additional-info">
+
+                    <div class="additional-number">
+                        PROJECT 13
+                    </div>
+
+                    <h4>Texas A&M University–Texarkana</h4>
+
+                    <p>
+                        Custom commercial counter assembly.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- PROJECT 14
+                 CASCIA HALL -->
+
+            <div class="additional-card"
+                 onclick="openModal('WebsiteImages/CounterCraft/Gallery/Project12.png')">
+
+                <img
+                    src="WebsiteImages/CounterCraft/Gallery/Project12.png"
+                    alt="Radius counter for Cascia Hall"
+                    loading="lazy"
+                >
+
+                <div class="additional-info">
+
+                    <div class="additional-number">
+                        PROJECT 14
+                    </div>
+
+                    <h4>Cascia Hall — Radius Counter</h4>
+
+                    <p>
+                        Custom curved counter assembly with
+                        detailed rear construction.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- PROJECT 15
+                 FARINE -->
+
+            <div class="additional-card"
+                 onclick="openModal('WebsiteImages/CounterCraft/Gallery/Project11.png')">
+
+                <img
+                    src="WebsiteImages/CounterCraft/Gallery/Project11.png"
+                    alt="Radius counter for Farine"
+                    loading="lazy"
+                >
+
+                <div class="additional-info">
+
+                    <div class="additional-number">
+                        PROJECT 15
+                    </div>
+
+                    <h4>Farine ES — Radius Counter</h4>
+
+                    <p>
+                        Custom curved sheet-metal counter assembly.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- IMAGE MODAL -->
+
+<div class="image-modal"
+     id="imageModal"
+     onclick="closeModal()">
+
+    <span class="modal-close">&times;</span>
+
+    <img
+        id="modalImage"
+        src=""
+        alt="Expanded SolidWorks project"
+        onclick="event.stopPropagation()"
+    >
+
+</div>
+
+
+
+
+
 <footer>
 © 2026 Leonardo Herrera
 </footer>
@@ -314,6 +1382,41 @@ lastScroll = currentScroll;
 function toggleMenu(){
     document.getElementById("navMenu").classList.toggle("active");
 }
+</script>
+
+<script>
+function openModal(image){
+
+    const modal = document.getElementById("imageModal");
+    const modalImage = document.getElementById("modalImage");
+
+    modalImage.src = image;
+
+    modal.classList.add("active");
+
+    document.body.style.overflow = "hidden";
+}
+
+
+function closeModal(){
+
+    const modal = document.getElementById("imageModal");
+
+    modal.classList.remove("active");
+
+    document.body.style.overflow = "";
+}
+
+
+/* Close modal with ESC */
+
+document.addEventListener("keydown", function(event){
+
+    if(event.key === "Escape"){
+        closeModal();
+    }
+
+});
 </script>
 
 </body>
